@@ -1,4 +1,6 @@
 Repodepot::Application.routes.draw do
+  get "static/about"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
