@@ -1,0 +1,19 @@
+<h1>Repository#new</h1>
+<p>Find me in app/views/repository/new.html.erb</p>
+
+<%= form_for(@repository) do |f| %>
+
+  <div class="field">
+    <%= f.label :owner_login %><br />
+    <%= f.text_field :owner_login %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>
+

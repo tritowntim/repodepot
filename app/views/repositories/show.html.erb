@@ -1,0 +1,61 @@
+<h1>Repository#show</h1>
+<p>Find me in app/views/repository/show.html.erb</p>
+
+<div class="record-detail">
+	<div class="name-value">
+		<label class="name">Github ID</label>
+		<p class="value"><%=@repository.github_id %></p>
+	</div>
+	<div class="name-value">
+		<label class="name">Owner Login</label>
+		<p class="value"><%=@repository.owner_login %></p>
+	</div>
+	<div class="name-value">
+		<label class="name">Name</label>
+		<p class="value"><%=@repository.name %></p>
+	</div>
+	<div class="name-value">
+		<label class="name">Full Name</label>
+		<p class="value"><%=@repository.full_name %></p>
+	</div>
+	<div class="name-value">
+		<label class="name">GitHub Created At</label>
+		<p class="value"><%=@repository.gh_created_at %></p>
+	</div>
+	<div class="name-value">
+		<label class="name">GitHub Updated At</label>
+		<p class="value"><%=@repository.gh_updated_at %></p>
+	</div>
+	<div class="name-value">
+		<label class="name">GitHub Pushed At</label>
+		<p class="value"><%=@repository.pushed_at %></p>
+	</div>
+	<div class="name-value">
+		<label class="name">Watchers Count</label>
+		<p class="value"><%=@repository.watchers_count %></p>
+	</div>
+	<div class="name-value">
+		<label class="name">Open Issues Count</label>
+		<p class="value"><%=@repository.open_issues_count %></p>
+	</div>
+	<div class="name-value">
+		<label class="name">Network Count</label>
+		<p class="value"><%=@repository.network_count %></p>
+	</div>
+	<div class="name-value">
+		<label class="name">Language</label>
+		<p class="value"><%=@repository.language %></p>
+	</div>
+	<div class="name-value">
+		<label class="name">Description</label>
+		<p class="value"><%=@repository.description %></p>
+	</div>
+	<div class="name-value">
+		<label class="name">Clone URL</label>
+		<p class="value"><%=@repository.clone_url %></p>
+	</div>
+	<div class="name-value">
+		<label class="name">HTML URL</label>
+		<p class="value"><%=@repository.html_url %></p>
+	</div>
+</div>

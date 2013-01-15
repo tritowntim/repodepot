@@ -1,3 +1,24 @@
 // Place all the styles related to the repository controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+ 
+
+.record-detail {
+ display: table;
+ border-collapse:collapse;
+}
+
+.name-value {
+	display: table-row;
+}
+
+/* label.name, p.value {
+	display: table-cell;
+	margin: 4px;
+} */
+
+.name-value * {
+	display: table-cell;
+}
+
+

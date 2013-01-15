@@ -1,9 +1,6 @@
 Repodepot::Application.routes.draw do
-  get "repository/new"
 
-  get "repository/insert"
-
-  get "repository/show"
+  resources :repositories
 
   get "static/about"
 
