@@ -13,6 +13,7 @@ class RepositoriesController < ApplicationController
   	puts "input = #{@repository.owner_login} #{@repository.name}"
 		gh = Github.repos.get @repository.owner_login, @repository.name
 		
+		# todo: easier to write with block?
 		@repository.github_id = gh.id
 		@repository.full_name = gh.full_name
 		@repository.gh_created_at = gh.created_at
@@ -27,22 +28,7 @@ class RepositoriesController < ApplicationController
 		@repository.clone_url = gh.clone_url
 		@repository.html_url = gh.html_url
 
-# 		'id',
-# 'full_name',
-# 'created_at',
-# 'updated_at',
-# 'pushed_at',
-# 'watchers_count',
-# 'forks_count',
-# 'open_issues_count',
-# 'network_count',
-# 'language',
-# 'description',
-# 'clone_url',
-# 'html_url'
-
 		@repository.save
-
 
 		redirect_to @repository
 
