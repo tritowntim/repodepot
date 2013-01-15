@@ -31,12 +31,13 @@ class RepositoriesController < ApplicationController
 		@repository.save
 
 		redirect_to @repository
-
   end
 
   def show
-
   	@repository = Repository.find(params[:id])
+  end
 
+  def index
+  	@repositories = Repository.all
   end
 end
