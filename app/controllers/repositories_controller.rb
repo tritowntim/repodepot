@@ -11,6 +11,8 @@ class RepositoriesController < ApplicationController
   	
   	@repository = Repository.new(params[:repository])
   	puts "input = #{@repository.owner_login} #{@repository.name}"
+		
+  	# todo: move Github API access and mapping to dedicated object 
 		gh = Github.repos.get @repository.owner_login, @repository.name
 		
 		# todo: easier to write with block?
