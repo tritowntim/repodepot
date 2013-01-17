@@ -1,6 +1,8 @@
 Repodepot::Application.routes.draw do
 
+  # todo: specify actual methods
   resources :repositories
+  resources :lists
 
   get "static/about"
 
