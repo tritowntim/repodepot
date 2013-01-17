@@ -1,18 +1,7 @@
 <h1>Lists#new</h1>
 <p>Find me in app/views/lists/new.html.erb</p>
 
-<%= form_for(@list) do |f| %>
+<%= render 'form', :list => @list %>
 
-	<div class="field">
-		<%= f.label :title %><br />
-		<%= f.text_field :title %>
-	</div>
-	<div class="field">
-		<%= f.label :description %><br />
-		<%= f.text_field :description %>
-	</div>
-	<div class="actions">
-		<%= f.submit %>
-	</div>
-
-<% end %>
+<br/>
+<%= link_to 'cancel', :lists %>
