@@ -23,6 +23,14 @@
 		<p><%=@list.updated_at %></p>
 	</div>
 </div>
+
+<div>
+  <% @list.listings.each do |listing| %>
+    <p><%= "#{listing.ordering} #{listing.repository.full_name}" %><br/>
+    <%= "#{listing.commentary}" %></p>
+  <% end %>
+</div>
+
 <br/>
 <%= link_to "lists", lists_path %>
 <br/>
