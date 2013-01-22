@@ -1,0 +1,12 @@
+			<fieldset>
+					<% if f.object.repository != nil %>
+		 		  	<%= render :partial => 'repositories/condensed', :locals => {:repository => f.object.repository} %>  
+		 		  <% end %>
+		 		  <%= f.text_field :repository_id %>
+		 		  <%= f.object.repository ? f.object.repository.full_name : nil %>
+		 		  <%= f.text_area :commentary %>
+		 		  <%= f.text_field :ordering %>
+		 		  <%= f.hidden_field :_destroy %>
+		 		  <%= link_to "delete", "#", :class => "remove_field" %>
+		 		  <br/>
+	 		 </fieldset>

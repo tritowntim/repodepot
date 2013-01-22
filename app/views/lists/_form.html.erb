@@ -10,17 +10,18 @@
 	</div>
 	<div>
 		<%= f.fields_for :listings do |ff| %> 
-		<fieldset>
-	 		  <%= render :partial => 'repositories/condensed', :locals => {:repository => ff.object.repository} %>  
-	 		  <%= ff.hidden_field :repository_id %>
-	 		  <%= ff.object.repository.full_name %>
-	 		  <%= ff.text_area :commentary %>
-	 		  <%= ff.text_field :ordering %>
-	 		  <%= ff.hidden_field :_destroy %>
-	 		  <%= link_to "delete", "#", :class => "remove_field" %>
-	 		  <br/>
- 		  </fieldset>
+			<fieldset>
+		 		  <%= render :partial => 'repositories/condensed', :locals => {:repository => ff.object.repository} %>  
+		 		  <%= ff.hidden_field :repository_id %>
+		 		  <%= ff.object.repository.full_name %>
+		 		  <%= ff.text_area :commentary %>
+		 		  <%= ff.text_field :ordering %>
+		 		  <%= ff.hidden_field :_destroy %>
+		 		  <%= link_to "delete", "#", :class => "remove_field" %>
+		 		  <br/>
+	 		</fieldset>
 		<% end %>
+		<%= link_to_add_fields "Add Repository", f, :listings %>
 	</div>
 	<div class="actions">
 		<%= f.submit %>

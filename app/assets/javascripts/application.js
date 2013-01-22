@@ -15,6 +15,7 @@
 //= require_tree .
 
 $(function() { 
+
 		$('form').on('click', '.remove_field', function(event) {
 			event.preventDefault()
 			console.log('.remove_field clicked')
@@ -22,6 +23,15 @@ $(function() {
 			$(event.target).prev('input[type=hidden]').val('1')
 			$(event.target).closest('fieldset').hide()
 		})
+
+    $('form').on('click', '.add_fields', function(event) {
+    	event.preventDefault()
+    	console.log('.add_fields clicked')
+    	var time = new Date().getTime()
+    	var regexp = new RegExp($(event.target).data('id'),'g')
+    	$(event.target).before($(this).data('fields').replace(regexp,time))
+    })
+
 	}
 )
 
