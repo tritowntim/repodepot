@@ -8,6 +8,17 @@
 		<%= f.label :description %><br />
 		<%= f.text_field :description %>
 	</div>
+	<div>
+		<%= f.fields_for :listings do |ff| %> 
+ 		  <%= ff.object.repository.gh_created_at %>  
+ 		  <%= render :partial => 'repositories/condensed', :locals => {:repository => ff.object.repository} %>  
+ 		  <%= ff.text_field :id %> 
+ 		  <%= ff.object.repository.full_name %>
+ 		  <%= ff.text_area :commentary %>
+ 		  <%= ff.text_field :ordering %>
+ 		  <br/>
+		<% end %>
+	</div>
 	<div class="actions">
 		<%= f.submit %>
 	</div>
