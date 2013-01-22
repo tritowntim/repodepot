@@ -3,5 +3,5 @@ class List < ActiveRecord::Base
   has_many :listings
   has_many :repositories, :through => :listings
 
-  accepts_nested_attributes_for :listings
+  accepts_nested_attributes_for :listings, :allow_destroy => true
 end
