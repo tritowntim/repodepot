@@ -1,0 +1,19 @@
+<h1>search</h1>
+<p>Find me in app/views/repository/search.html.erb</p>
+
+<%= form_for(@repository, :url => { :action => "lookup" }) do |f| %>
+
+  <div class="field">
+    <%= f.label :owner_login %><br />
+    <%= f.text_field :owner_login %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="actions">
+    <%= f.submit "search" %>
+  </div>
+
+<% end %>
+

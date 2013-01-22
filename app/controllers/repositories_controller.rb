@@ -1,6 +1,3 @@
-
-
-
 class RepositoriesController < ApplicationController
   def new
   	@repository = Repository.new  	
@@ -13,9 +10,9 @@ class RepositoriesController < ApplicationController
   	puts "input = #{@repository.owner_login} #{@repository.name}"
 		
   	# todo: move Github API access and mapping to dedicated object 
-		gh = Github.repos.get @repository.owner_login, @repository.name
-		
-		# todo: easier to write with block?
+		gh = Github.repos.get @repository.owner_login, @repository.name 
+
+		# todo: easier way to write with block?
 		@repository.github_id = gh.id
 		@repository.full_name = gh.full_name
 		@repository.gh_created_at = gh.created_at
@@ -41,5 +38,24 @@ class RepositoriesController < ApplicationController
 
   def index
   	@repositories = Repository.all
+  end
+
+  def search
+  	# todo: avoid usage of dummy repo...  form_tag?
+  	@repository = Repository.new
+  end
+
+  def lookup
+
+  	@repository = Repository.new(params[:repository])
+
+    # look for repo via find
+    @existing = Repository.where("full_name = ?", "#{@repository.owner_login}/#{@repository.name}" ).first
+    if @existing == nil 
+      # if not exists then create
+      # private method
+    else
+    	redirect_to @existing
+    end
   end
 end
