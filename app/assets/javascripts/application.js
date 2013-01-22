@@ -13,3 +13,15 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(function() { 
+		$('form').on('click', '.remove_field', function(event) {
+			event.preventDefault()
+			console.log('.remove_field clicked')
+			console.log($(event.target))
+			$(event.target).prev('input[type=hidden]').val('1')
+			$(event.target).closest('fieldset').hide()
+		})
+	}
+)
+
