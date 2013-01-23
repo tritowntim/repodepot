@@ -1,4 +1,4 @@
-			<fieldset>
+			<fieldset data-id="<%= f.object.object_id %>">
 					<% if f.object.repository != nil %>
 		 		  	<%= render :partial => 'repositories/condensed', :locals => {:repository => f.object.repository} %>  
 		 		  <% else %>
