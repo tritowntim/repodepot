@@ -1,5 +1,3 @@
-<script type="text/template" id="blank-listing"> 
-	<%= fields_for @blank_listing, :child_index => @blank_listing.object_id do |f| %> 
+<script type="text/template" id="blank-listing">  
   	<%= render :partial => 'lists/listing', :locals => {:f => f}, :layout => false %>   
-  <% end %>
 </script>

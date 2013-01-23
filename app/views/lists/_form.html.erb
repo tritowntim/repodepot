@@ -32,8 +32,9 @@
 		<%= f.submit %>
 	</div>
  
- 
-	<%= render "listing_script", :locals => {:blank_listing => @blank_listing} %>
+	<%= f.fields_for :listings, @blank_listing, :child_index => @blank_listing.object_id do |ff| %>  
+		<%= render :partial => 'lists/listing_script', :locals => {:f => ff} %>
+	<% end %>  
  
 <% end %>
 
