@@ -20,6 +20,8 @@ class ListsController < ApplicationController
 
   def edit
     @list = find_list
+    @blank_listing = Listing.new
+    @blank_listing.list_id = @list.id
   end
 
   def update
