@@ -11,7 +11,11 @@
 	<div>
 		<%= f.fields_for :listings do |ff| %> 
 			<fieldset>
-		 		  <%= render :partial => 'repositories/condensed', :locals => {:repository => ff.object.repository} %>  
+				  <% if ff.object.id == nil %>
+				  <%= render :partial => 'repositories/search', :locals => {:repository => ff.object.repository}, :layout => false %>  
+				  <% else %>
+			 		  <%= render :partial => 'repositories/condensed', :locals => {:repository => ff.object.repository} %>  
+			 		<% end %>
 		 		  <%= ff.hidden_field :repository_id %>
 		 		  <%= ff.object.repository.full_name %>
 		 		  <%= ff.text_area :commentary %>

@@ -17,7 +17,7 @@
 	<tbody>
 	<% @repositories.each do |repo| %>
 	  <tr>
-	  	<td><%= repo.id %></td>
+	  	<td><%= link_to repo.id, repo, {:remote => true} %></td>
 	  	<td><%= repo.full_name %></td>
 	  	<td><%= repo.gh_created_at %></td>
 	  	<td><%= repo.gh_updated_at %></td>

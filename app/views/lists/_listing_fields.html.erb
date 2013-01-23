@@ -1,6 +1,8 @@
 			<fieldset>
 					<% if f.object.repository != nil %>
 		 		  	<%= render :partial => 'repositories/condensed', :locals => {:repository => f.object.repository} %>  
+		 		  	<% else %>
+				  <%= render :partial => 'repositories/search', :locals => {:repository => Repository.new}, :layout => false %>  
 		 		  <% end %>
 		 		  <%= f.text_field :repository_id %>
 		 		  <%= f.object.repository ? f.object.repository.full_name : nil %>

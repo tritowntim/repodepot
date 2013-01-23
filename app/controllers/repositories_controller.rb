@@ -1,39 +1,19 @@
-class RepositoriesController < ApplicationController
-  def new
-  	@repository = Repository.new  	
-  end
+class RepositoriesController < ApplicationController  
 
-  def create
-    # owner_login, repo_name = params[:owner_login], params[:repo_name]
+  # def new
+  # 	@repository = Repository.new  	
+  # end
+
+  # def create
   	
-  	@repository = Repository.new(params[:repository])
-  	puts "input = #{@repository.owner_login} #{@repository.name}"
-		
-  	# todo: move Github API access and mapping to dedicated object 
-		gh = Github.repos.get @repository.owner_login, @repository.name 
+  # 	@repository = Repository.new(params[:repository])
+  # 	puts "input = #{@repository.owner_login} #{@repository.name}"
 
-		# todo: easier way to write with block?
-		@repository.github_id = gh.id
-		@repository.full_name = gh.full_name
-		@repository.gh_created_at = gh.created_at
-		@repository.gh_updated_at = gh.updated_at
-		@repository.pushed_at = gh.pushed_at
-		@repository.watchers_count = gh.watchers_count
-		@repository.forks_count = gh.forks_count
-		@repository.open_issues_count = gh.open_issues_count
-		@repository.network_count = gh.network_count
-		@repository.language = gh.language
-		@repository.description = gh.description
-		@repository.clone_url = gh.clone_url
-		@repository.html_url = gh.html_url
-
-		@repository.save
-
-		redirect_to @repository
-  end
+		# redirect_to create_from_api @repository.owner_login, @repository.name
+  # end
 
   def show
-  	@repository = Repository.find(params[:id])
+  	@repository = Repository.find(params[:id]) 
   end
 
   def index
@@ -47,15 +27,52 @@ class RepositoriesController < ApplicationController
 
   def lookup
 
-  	@repository = Repository.new(params[:repository])
+  	@params = Repository.new(params[:repository])
 
     # look for repo via find
-    @existing = Repository.where("full_name = ?", "#{@repository.owner_login}/#{@repository.name}" ).first
+    @existing = Repository.where("full_name = ?", "#{@params.owner_login}/#{@params.name}" ).first
+    logger.info("EXISTING = #{@existing ? @existing.full_name : 'NOT FOUND'}")
     if @existing == nil 
       # if not exists then create
-      # private method
+      # private method 
+       
+      @repository = create_from_api @params.owner_login, @params.name
     else
-    	redirect_to @existing
+    	@repository = @existing
     end
+    respond_to do |format|
+      format.html { redirect_to @repository }
+      format.js { render :js => "console.log('bprr')" }
+    end 
   end
+
+  private
+
+    def create_from_api(owner_login, repo_name)
+
+    	@repository = Repository.new
+    	@repository.owner_login = owner_login
+    	@repository.name = repo_name
+
+	  	# todo: move Github API access and mapping to dedicated object 
+			gh = Github.repos.get owner_login, repo_name 
+
+			# todo: easier way to write with block?
+			@repository.github_id = gh.id
+			@repository.full_name = gh.full_name
+			@repository.gh_created_at = gh.created_at
+			@repository.gh_updated_at = gh.updated_at
+			@repository.pushed_at = gh.pushed_at
+			@repository.watchers_count = gh.watchers_count
+			@repository.forks_count = gh.forks_count
+			@repository.open_issues_count = gh.open_issues_count
+			@repository.network_count = gh.network_count
+			@repository.language = gh.language
+			@repository.description = gh.description
+			@repository.clone_url = gh.clone_url
+			@repository.html_url = gh.html_url
+
+			@repository.save
+			@repository
+    end
 end

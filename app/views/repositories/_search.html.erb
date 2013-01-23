@@ -1,7 +1,5 @@
-<h1>search</h1>
-<p>Find me in app/views/repository/search.html.erb</p>
-
-<%= form_for(@repository, :url => { :action => "lookup" }) do |f| %>
+ 
+<%= form_for(repository, :url => { :controller => "repositories", :action => "lookup", :format => "js"}, :remote => true) do |f| %>
 
   <div class="field">
     <%= f.label :owner_login %><br />
