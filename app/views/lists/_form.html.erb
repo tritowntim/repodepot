@@ -10,22 +10,9 @@
 	</div>
 	<div>
 		<%= f.fields_for :listings do |ff| %> 
-			<fieldset>
-				  <% if ff.object.id == nil %>
-				  <%= render :partial => 'repositories/search', :locals => {:repository => ff.object.repository}, :layout => false %>  
-				  <% else %>
-			 		  <%= render :partial => 'repositories/condensed', :locals => {:repository => ff.object.repository} %>  
-			 		<% end %>
-		 		  <%= ff.hidden_field :repository_id %>
-		 		  <%= ff.object.repository.full_name %>
-		 		  <%= ff.text_area :commentary %>
-		 		  <%= ff.text_field :ordering %>
-		 		  <%= ff.hidden_field :_destroy %>
-		 		  <%= link_to "delete", "#", :class => "remove_field" %>
-		 		  <br/>
-	 		</fieldset>
+			<%= render :partial => 'lists/listing', :locals => {:f => ff}, :layout => false %>   
 		<% end %>
-		<%= link_to "Add Listing (todo)", "#", :class => "add_listing" %>
+		<%= link_to "Add Repository", "#", :class => "add_listing" %>
 	</div>
 	<div class="actions">
 		<%= f.submit %>
