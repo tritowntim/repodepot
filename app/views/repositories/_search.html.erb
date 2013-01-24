@@ -1,11 +1,12 @@
+<div class="repository-search invisible-ui">
+	<%= form_tag lookup_repositories_path, {:remote => true, :format => :js} do %>
 
-<%= form_tag lookup_repositories_path, {:remote => true, :format => :js} do %>
+	  <div class="field">
+	    <%= text_field_tag "full_repo_name", "", :size => 75 %>
+	    <%= submit_tag "search" %>
+	    <br />
+	    <%= label_tag "full_repo_name" %>
+	  </div>
 
-  <div class="field">
-    <%= text_field_tag "full_repo_name", "", :size => 75 %>
-    <%= submit_tag "search" %>
-    <br />
-    <%= label_tag "full_repo_name" %>
-  </div>
-
-<% end %>
+	<% end %>
+</div>

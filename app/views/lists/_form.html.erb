@@ -12,6 +12,8 @@
 		<%= f.fields_for :listings do |ff| %> 
 			<%= render :partial => 'lists/listing', :locals => {:f => ff}, :layout => false %>   
 		<% end %>
+	</div>
+	<div>
 		<%= link_to "Add Repository", "#", :class => "add_listing" %>
 	</div>
 	<div class="actions">

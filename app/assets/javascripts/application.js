@@ -32,15 +32,24 @@ $(function() {
     	$(event.target).before($(this).data('fields').replace(regexp,time))
     })
 
-    $('form').on('click', '.add_listing', function(event) {
-    	event.preventDefault()
-    	console.log('.add_fields clicked')
-    	var time = new Date().getTime()
-    	var b = $("#blank-listing").html()
-    	var regexp = new RegExp($(b).data('id'),'g')
-    	$(event.target).before($("#blank-listing").html().replace(regexp,time))
-    })  
+    // $('form').on('click', '.add_listing', function(event) {
+    // 	event.preventDefault()
+    // 	console.log('.add_fields clicked')
+    // 	var time = new Date().getTime()
+    // 	var b = $("#blank-listing").html()
+    // 	var regexp = new RegExp($(b).data('id'),'g')
+    // 	$(event.target).before($("#blank-listing").html().replace(regexp,time))
+    // })  
 
-	}
-)
+    $('form').on('click', '.add_listing', function(event) {
+        event.preventDefault()
+        console.log('.add_fields clicked')
+        $('.repository-search').toggleClass('invisible-ui')
+        // var time = new Date().getTime()
+        // var b = $("#blank-listing").html()
+        // var regexp = new RegExp($(b).data('id'),'g')
+        // $(event.target).before($("#blank-listing").html().replace(regexp,time))
+    }) 
+
+})
 

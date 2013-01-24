@@ -7,11 +7,12 @@ var time = new Date().getTime()
 var b = $("#blank-listing").html()
 var regexp = new RegExp($(b).data('id'),'g')
 $('#listing-forms').append($("#blank-listing").html().replace(regexp,time))
-console.log("BY ID = " + $("#" + time + " form").html())
- 
-$("form","#" + time).after(n)
-$("form","#" + time).remove()
+// console.log("BY ID = " + $("#" + time + " form").html())
+
+// todo: cleanup this insertion/reference
+$("form","#" + time).parent().after(n)
+$("form","#" + time).parent().remove()
 
 $("#list_listings_attributes_" + time + "_repository_id").val(repositoryId)
 
-console.log("yes")
+$('.repository-search').toggleClass('invisible-ui')
