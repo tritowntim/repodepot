@@ -45,6 +45,7 @@ $(function() {
         event.preventDefault()
         console.log('.add_fields clicked')
         $('.repository-search').toggleClass('invisible-ui')
+        $('.repository-search #full_repo_name').focus()
         // var time = new Date().getTime()
         // var b = $("#blank-listing").html()
         // var regexp = new RegExp($(b).data('id'),'g')
