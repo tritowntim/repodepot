@@ -11,6 +11,8 @@ Repodepot::Application.routes.draw do
 
   match "about" => "static#about"
 
+  root :to => "static#about"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
