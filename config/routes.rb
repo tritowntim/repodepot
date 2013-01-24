@@ -9,7 +9,7 @@ Repodepot::Application.routes.draw do
   end
   resources :lists
 
-  get "static/about"
+  match "about" => "static#about"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

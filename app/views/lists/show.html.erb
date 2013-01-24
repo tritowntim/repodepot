@@ -16,22 +16,25 @@
 	</div>
 	<div class="name-value">
 		<label>Created At</label>
-		<p><%=@list.created_at %></p>
+		<p><%=@list.created_at %> <%= "#{distance_of_time_in_words_to_now @list.created_at} ago" %> </p>
 	</div>
 	<div class="name-value">
 		<label>Update At</label>
-		<p><%=@list.updated_at %></p>
+		<p><%=@list.updated_at %> <%= "#{distance_of_time_in_words_to_now @list.updated_at} ago"  %> </p>
 	</div>
 </div>
 
 <div>
-  <% @list.listings.each do |listing| %>
-    <p><%= "#{listing.ordering} #{listing.repository.full_name}" %><br/>
-    <%= "#{listing.commentary}" %></p>
+  <% @list.listings.each do |listing| %> 
+    <%= render :partial => 'listing/listing_detail', :locals => {:listing => listing, :repository => listing.repository} %>
   <% end %>
 </div>
 
+<%= link_to "edit", edit_list_path, :class => "btn btn-primary"  %>
 <br/>
-<%= link_to "lists", lists_path %>
 <br/>
-<%= link_to "edit", edit_list_path %>
+<%= link_to "all lists", lists_path, :class => "btn btn-info" %>
+<br/>
+<br/>
+<br/>
+
