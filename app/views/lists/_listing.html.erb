@@ -1,4 +1,4 @@
-			<fieldset data-id="<%= f.object.object_id %>">
+			<fieldset id="<%= f.object.object_id %>" data-id="<%= f.object.object_id %>">
 					<% if f.object.repository != nil %>
 		 		  	<%= render :partial => 'repositories/condensed', :locals => {:repository => f.object.repository} %>  
 		 		  <% else %>
@@ -11,4 +11,4 @@
 		 		  <%= f.hidden_field :_destroy %>
 		 		  <%= link_to "delete", "#", :class => "remove_field" %>
 		 		  <br/>
-	 		 </fieldset>
+	 		</fieldset>

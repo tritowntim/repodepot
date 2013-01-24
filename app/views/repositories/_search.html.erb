@@ -1,17 +1,11 @@
- 
+
 <%= form_tag lookup_repositories_path, {:remote => true, :format => :js} do %>
 
   <div class="field">
-    <%= label_tag "owner_login" %><br />
-    <%= text_field_tag "owner_login" %>
-  </div>
-  <div class="field">
-    <%= label_tag "name" %><br />
-    <%= text_field_tag "name" %>
-  </div>
-  <div class="actions repo-search">
+    <%= text_field_tag "full_repo_name", "", :size => 75 %>
     <%= submit_tag "search" %>
+    <br />
+    <%= label_tag "full_repo_name" %>
   </div>
 
 <% end %>
-

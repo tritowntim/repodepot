@@ -32,16 +32,19 @@ class RepositoriesController < ApplicationController
   	# @params = Repository.new(params[:repository])
 
     # look for repo via find
-    @existing = Repository.where("full_name = ?", "#{params[:owner_login]}/#{params[:name]}" ).first
+    # @existing = Repository.where("full_name = ?", "#{params[:owner_login]}/#{params[:name]}" ).first
+    @existing = Repository.where("full_name = ?", params[:full_repo_name]).first
     logger.info("EXISTING = #{@existing ? @existing.full_name : 'NOT FOUND'}")
     if @existing == nil 
       # if not exists then create
       # private method 
        
-      @repository = create_from_api params[:owner_login], params[:name]
+      # @repository = create_from_api params[:owner_login], params[:name]
+      @repository = create_from_api  params[:full_repo_name].split("/")[0], params[:full_repo_name].split("/")[1] 
     else
     	@repository = @existing
     end
+    
     respond_to do |format|
       format.html 
       format.js
