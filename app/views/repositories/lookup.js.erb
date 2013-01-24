@@ -13,7 +13,10 @@ $('#listing-forms').append($("#blank-listing").html().replace(regexp,time))
 $("form","#" + time).parent().after(n)
 $("form","#" + time).parent().remove()
 
+// todo: better way to reference, like ordering below?
 $("#list_listings_attributes_" + time + "_repository_id").val(repositoryId)
+
+$('#'+time+" .ordering").val($('#listing-forms fieldset').length)
 
 $('.repository-search').toggleClass('invisible-ui')
 

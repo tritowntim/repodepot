@@ -15,6 +15,10 @@
 		<p><%=@list.description %></p>
 	</div>
 	<div class="name-value">
+		<label>Repositories</label>
+		<p><%= "#{@list.listings.count} repositor#{@list.listings.count == 1 ? 'y' : 'ies'}" %>  </p>
+	</div>
+	<div class="name-value">
 		<label>Created At</label>
 		<p><%=@list.created_at %> <%= "#{distance_of_time_in_words_to_now @list.created_at} ago" %> </p>
 	</div>
