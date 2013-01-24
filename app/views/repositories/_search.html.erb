@@ -1,13 +1,12 @@
 <div class="repository-search invisible-ui">
-	<%= form_tag lookup_repositories_path, {:remote => true, :format => :js} do %>
-
-	  <div class="field">
-	    <%= label_tag "GitHub respository" %>
-	    <%= text_field_tag "full_repo_name", "", :size => 75 %>
-	    <%= submit_tag "add repo" %>
+	<%= form_tag lookup_repositories_path, {:remote => true, :format => :js, :class => "form-inline"} do %>
+ 
+	    <%= label_tag "GitHub respository" %><br/>
+	    <%= text_field_tag "full_repo_name", "", :class => "input-xxlarge" %>
+	    <%= submit_tag "add repo", :class => "btn" %>
 	    <br />
 	    <p>Examples:</br>twitter/bootstrap</br>https://github.com/twitter/bootstrap</p>
-	  </div>
+ 
 
 	<% end %>
 </div>
