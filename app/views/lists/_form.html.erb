@@ -17,7 +17,8 @@
 		<%= link_to "Add Repository", "#", :class => "add_listing" %>
 	</div>
 	<div class="actions">
-		<%= f.submit %>
+		<%= f.submit "Save List" %>
+  	<%= link_to 'cancel', @list.new_record? ? :lists : :list %>
 	</div>
  
 	<%= f.fields_for :listings, @blank_listing, :child_index => @blank_listing.object_id do |ff| %>  
