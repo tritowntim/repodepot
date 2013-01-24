@@ -39,7 +39,7 @@ $(function() {
     	var b = $("#blank-listing").html()
     	var regexp = new RegExp($(b).data('id'),'g')
     	$(event.target).before($("#blank-listing").html().replace(regexp,time))
-    })
+    })  
 
 	}
 )

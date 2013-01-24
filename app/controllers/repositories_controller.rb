@@ -1,4 +1,6 @@
-class RepositoriesController < ApplicationController  
+class RepositoriesController < ApplicationController   
+
+  respond_to :html, :js
 
   # def new
   # 	@repository = Repository.new  	
@@ -27,22 +29,22 @@ class RepositoriesController < ApplicationController
 
   def lookup
 
-  	@params = Repository.new(params[:repository])
+  	# @params = Repository.new(params[:repository])
 
     # look for repo via find
-    @existing = Repository.where("full_name = ?", "#{@params.owner_login}/#{@params.name}" ).first
+    @existing = Repository.where("full_name = ?", "#{params[:owner_login]}/#{params[:name]}" ).first
     logger.info("EXISTING = #{@existing ? @existing.full_name : 'NOT FOUND'}")
     if @existing == nil 
       # if not exists then create
       # private method 
        
-      @repository = create_from_api @params.owner_login, @params.name
+      @repository = create_from_api params[:owner_login], params[:name]
     else
     	@repository = @existing
     end
     respond_to do |format|
-      format.html { redirect_to @repository }
-      format.js { render :js => "console.log('bprr')" }
+      format.html 
+      format.js
     end 
   end
 

@@ -1,7 +1,7 @@
 <h1>search</h1>
 <p>Find me in app/views/repository/search.html.erb</p>
 
-<%= form_for(@repository, :url => { :action => "lookup" }) do |f| %>
+<%= form_for(@repository, :url => { :action => "lookup" }, :remote => true) do |f| %>
 
   <div class="field">
     <%= f.label :owner_login %><br />
@@ -13,6 +13,22 @@
   </div>
   <div class="actions repo-search">
     <%= f.submit "search" %>
+  </div>
+
+<% end %>
+
+<%= form_tag lookup_repositories_path, {:remote => true} do %>
+
+  <div class="field">
+    <%= label_tag "owner_login" %><br />
+    <%= text_field_tag "owner_login" %>
+  </div>
+  <div class="field">
+    <%= label_tag "name" %><br />
+    <%= text_field_tag "name" %>
+  </div>
+  <div class="actions repo-search">
+    <%= submit_tag "search" %>
   </div>
 
 <% end %>
