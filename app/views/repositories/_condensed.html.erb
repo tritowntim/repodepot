@@ -1,44 +1,47 @@
-<table>
-	<td class="">
-		<%= repository.github_id %>
-	</td>
-	<td class="">
-		<%= repository.owner_login %>
-	</td>
-	<td class="">
-		<%= repository.name %>
-	</td>
-	<td class="">
-		<%= repository.full_name %>
-	</td>
-	<td class="">
-		<%= repository.gh_created_at %>
-	</td>
-	<td class="">
-		<%= repository.gh_updated_at %>
-	</td>
-	<td class="">
-		<%= repository.pushed_at %>
-	</td>
-	<td class="">
-		<%= repository.watchers_count %>
-	</td>
-	<td class="">
-		<%= repository.open_issues_count %>
-	</td>
-	<td class="">
-		<%= repository.network_count %>
-	</td>
-	<td class="">
-		<%= repository.language %>
-	</td>
-	<td class="">
-		<%= repository.description %>
-	</td>
-	<td class="">
-		<%= repository.clone_url %>
-	</td>
-	<td class="">
-		<%= repository.html_url %>
-	</td>
+<table class="table table-bordered">
+	<thead>
+		<tr> 
+			<th>Repository</th>
+			<th>Watchers</th>
+			<th>Forks</th>
+			<th>Network</th>
+			<th>Open Issues</th>
+			<th>Language</th>
+			<th>Last Updated</th>
+			<th>Created</th> 
+		</tr>
+	</thead>
+	<tbody>
+		<tr> 
+			<td class=""> 
+				<%= link_to repository.full_name, repository.html_url %>
+			</td>
+			<td class="">
+				<%= number_with_delimiter repository.watchers_count %>
+			</td>
+			<td class="">
+				<%= number_with_delimiter repository.forks_count %>
+			</td>
+			<td class="">
+				<%= number_with_delimiter repository.open_issues_count %>
+			</td>
+			<td class="">
+				<%= number_with_delimiter repository.network_count %>
+			</td>
+			<td class="">
+				<%= repository.language %>
+			</td>  
+			<td class="">
+				<%= "#{distance_of_time_in_words_to_now repository.gh_updated_at} ago " %>
+			</td>
+			<td class="">
+				<%= "#{distance_of_time_in_words_to_now repository.gh_created_at} ago " %>
+			</td> 
+		</tr>
+		<tr>
+			<td colspan="9">
+				<%= repository.description %>
+			</td>
+		</tr>
+	</tbody>
 </table>

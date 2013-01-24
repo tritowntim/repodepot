@@ -2,10 +2,11 @@
 	<%= form_tag lookup_repositories_path, {:remote => true, :format => :js} do %>
 
 	  <div class="field">
+	    <%= label_tag "GitHub respository" %>
 	    <%= text_field_tag "full_repo_name", "", :size => 75 %>
-	    <%= submit_tag "search" %>
+	    <%= submit_tag "add repo" %>
 	    <br />
-	    <%= label_tag "full_repo_name" %>
+	    <p>Examples:</br>twitter/bootstrap</br>https://github.com/twitter/bootstrap</p>
 	  </div>
 
 	<% end %>
