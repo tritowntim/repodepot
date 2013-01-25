@@ -33,9 +33,25 @@ repos_li = ["https://github.com/documentcloud/underscore", "https://github.com/v
 	repo_li.save!
 
   i += 1
-  listing_repodepot_self = Listing.create!(:list_id => list_li.id, :repository_id => repo_li.id, :commentary => "", :ordering => i)
+  listing_li = Listing.create!(:list_id => list_li.id, :repository_id => repo_li.id, :commentary => "", :ordering => i)
 
 end
+
+
+# RAILS ALTERNATIVES ##############
+
+list_alt = List.create!(:title => "Rails Alternatives", :description => "Other Ruby frameworks besides Rails.")
+
+i = 0
+repos_alt = ["https://github.com/sinatra/sinatra", "https://github.com/padrino/padrino-framework", "https://github.com/camping/camping", "https://github.com/ramaze/ramaze", "https://github.com/renee-project/renee",  "https://github.com/mtodd/halcyon", "https://github.com/mikbe/blast"].each do |url| 
+	repo_alt = GithubRepo.new(url).repository
+	repo_alt.save!
+
+  i += 1
+  listing_alt = Listing.create!(:list_id => list_alt.id, :repository_id => repo_alt.id, :commentary => "", :ordering => i)
+
+end
+ 
  
 
 
