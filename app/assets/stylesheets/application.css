@@ -19,3 +19,7 @@
 .invisible-ui {
 	display: none;
 }
+
+.numeric {
+	text-align: right !important;
+}
