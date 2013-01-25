@@ -40,7 +40,7 @@ end
 
 # RAILS ALTERNATIVES ##############
 
-list_alt = List.create!(:title => "Rails Alternatives", :description => "Other Ruby frameworks besides Rails.")
+list_alt = List.create!(:title => "Ruby Web Alternatives to Rails", :description => "Other Ruby frameworks besides Rails.")
 
 i = 0
 repos_alt = ["https://github.com/sinatra/sinatra", "https://github.com/padrino/padrino-framework", "https://github.com/camping/camping", "https://github.com/ramaze/ramaze", "https://github.com/renee-project/renee",  "https://github.com/mtodd/halcyon", "https://github.com/mikbe/blast"].each do |url| 
