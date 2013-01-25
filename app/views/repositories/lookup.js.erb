@@ -1,6 +1,6 @@
 console.log("lookup...")
 
-var n = "<%=  j (render :partial => 'condensed', :locals => {:repository => @repository}) %>"
+var n = "<%=  j (render :partial => 'condensed', :locals => {:repository => @repository, :commentary => nil}) %>"
 var repositoryId = "<%= @repository.id %>"
 
 var time = new Date().getTime()
