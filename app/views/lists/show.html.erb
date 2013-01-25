@@ -1,24 +1,25 @@
-<div class="header">
-</div>
-<div class="header">
-	<div class="title">
-		<h3><%=@list.title %></h3>
+<div class="header-group">
+	<div class="header">
 	</div>
-	<div class="repo-update-ago">
-		<small>updated<br/><%= " #{distance_of_time_in_words_to_now @list.updated_at} ago" %></small>
+	<div class="header">
+		<div class="title">
+			<h3><%=@list.title %></h3>
+		</div>
+		<div class="repo-update-ago">
+			<small>updated<br/><%= " #{distance_of_time_in_words_to_now @list.updated_at} ago" %></small>
+		</div>
+	</div>
+	<div class="header">
+	</div>
+	<div class="header">
+		<div class="description">
+			<p><%=@list.description %></p>
+		</div>
+		<div class="repository-count">
+			<p><%= "#{@list.listings.count} repositor#{@list.listings.count == 1 ? 'y' : 'ies'}" %>  </p>
+		</div>
 	</div>
 </div>
-<div class="header">
-</div>
-<div class="header">
-	<div class="description">
-		<p><%=@list.description %></p>
-	</div>
-	<div class="repository-count">
-		<p><%= "#{@list.listings.count} repositor#{@list.listings.count == 1 ? 'y' : 'ies'}" %>  </p>
-	</div>
-</div>
-
 <div class="record-detail">
 <!-- 	<div class="name-value">
 		<label>ID</label>

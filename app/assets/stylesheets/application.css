@@ -23,3 +23,12 @@
 .numeric {
 	text-align: right !important;
 }
+
+.repo-description {
+	width: 50%;
+}
+
+th {
+	padding-top: 2px !important;
+	padding-bottom: 2px !important;
+}

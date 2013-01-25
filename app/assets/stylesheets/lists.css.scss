@@ -52,8 +52,14 @@ textarea.commentary {
 	color: darkgray;
 }
 
+.header-group {
+	display: table;
+	width: 100%;
+}
+
 .header {
 	display: table-row;
+	width: 100%;
 }
 
 textarea.list-description {

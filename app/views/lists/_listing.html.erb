@@ -1,6 +1,6 @@
 			<fieldset id="<%= f.object.object_id %>" data-id="<%= f.object.object_id %>">
 					<% if f.object.repository != nil %>
-		 		  	<%= render :partial => 'repositories/condensed', :locals => {:repository => f.object.repository} %>  
+		 		  	<%= render :partial => 'repositories/condensed', :locals => {:repository => f.object.repository, :commentary => f.object.commentary} %>  
 		 		  <% else %>
 				  	<%= render :partial => 'repositories/search', :locals => {:repository => Repository.new}, :layout => false %>  
 		 		  <% end %>
