@@ -1,8 +1,26 @@
-<h1>Lists#show</h1>
-<p>Find me in app/views/lists/show.html.erb</p>
+<div class="header">
+</div>
+<div class="header">
+	<div class="title">
+		<h3><%=@list.title %></h3>
+	</div>
+	<div class="repo-update-ago">
+		<p><%= "#{distance_of_time_in_words_to_now @list.updated_at} ago" %></>
+	</div>
+</div>
+<div class="header">
+</div>
+<div class="header">
+	<div class="description">
+		<p><%=@list.description %></p>
+	</div>
+	<div class="repository-count">
+		<p><%= "#{@list.listings.count} repositor#{@list.listings.count == 1 ? 'y' : 'ies'}" %>  </p>
+	</div>
+</div>
 
 <div class="record-detail">
-	<div class="name-value">
+<!-- 	<div class="name-value">
 		<label>ID</label>
 		<p><%=@list.id %></p>
 	</div>
@@ -17,15 +35,15 @@
 	<div class="name-value">
 		<label>Repositories</label>
 		<p><%= "#{@list.listings.count} repositor#{@list.listings.count == 1 ? 'y' : 'ies'}" %>  </p>
-	</div>
-	<div class="name-value">
+	</div> -->
+<!-- 	<div class="name-value">
 		<label>Created At</label>
 		<p><%=@list.created_at %> <%= "#{distance_of_time_in_words_to_now @list.created_at} ago" %> </p>
 	</div>
 	<div class="name-value">
 		<label>Update At</label>
 		<p><%=@list.updated_at %> <%= "#{distance_of_time_in_words_to_now @list.updated_at} ago"  %> </p>
-	</div>
+	</div> -->
 </div>
 
 <div>

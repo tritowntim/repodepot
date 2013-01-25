@@ -15,11 +15,11 @@ textarea.commentary {
 .add-repo {
 	margin: 20px 0;
 }
- 
 
 .listing-detail {
 	margin: 30px 0;
-	background-color: lightgray;
+	background-color: #E6E6E6;
+	padding: 4px;
 }
 
 .listing-detail .commentary {
@@ -31,3 +31,24 @@ textarea.commentary {
 .repo-condensed th {
 	font-size: smaller;
 }
+
+.repo-condensed {
+	margin-bottom: 0;
+}
+
+.description, .title {
+	display: table-cell;
+}
+
+.repository-count, .repo-update-ago {
+	display: table-cell;
+	width: 10%; 
+}
+
+.header {
+	display: table-row;
+}
+
+
+
+
