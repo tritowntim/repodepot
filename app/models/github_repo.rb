@@ -9,13 +9,14 @@ class GithubRepo
   def validate(input) 
   	full_repo_name = input.gsub("https://github.com/","")
   	if full_repo_name.count("/") == 1
-      repo_ids = input[19,input.length-1].split("/")
-      @owner = repo_ids[0]
-  		@repo_name = repo_ids[1]
+  		# repo_ids = input[19,input.length-1].split("/")
+      repo_ids = full_repo_name.split("/")
+      @owner, @repo_name = repo_ids[0], repo_ids[1]
   		@owner.length > 0 && @repo_name.length > 0 
    	else 
    		false
    	end
+   	# todo: throw error if invalid
    end 
 
   def lookup 
@@ -23,7 +24,7 @@ class GithubRepo
   end 
 
  	def create_repo
- 		
+
     	@repository = Repository.new
     	@repository.owner_login = @owner
     	@repository.name = @repo_name
