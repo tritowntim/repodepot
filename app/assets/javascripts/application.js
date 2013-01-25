@@ -52,8 +52,10 @@ $(function() {
         // $(event.target).before($("#blank-listing").html().replace(regexp,time))
     }) 
 
+
     $('.cancel-repo-search').on('click', function(event) { 
       $('.repository-search').toggleClass('invisible-ui')
+      $('.repository-search #full_repo_name').val('')
     })
 
     $('form').on('click', '.remove_field', function(event) {

@@ -38,22 +38,17 @@
 				<%= "#{distance_of_time_in_words_to_now repository.gh_created_at} ago " %>
 			</td> 
 		</tr>
-<!-- 		<tr>
-			<td colspan="9">
-				<%= repository.description %>
-			</td>
-		</tr> -->
 	</tbody>
 	<thead>
 		<tr> 
-			<th colspan="4">Repository Description</th>
-			<th colspan="5">Notes</th>
+			<th colspan="9">Repository Description</th>
 		</tr>
 	</thead>
 	<tbody>
-		<tr> 
-			<td colspan="4" class="repo-description"><%= repository.description %></td>
-			<td colspan="5"><%= commentary %></td>
+		<tr>
+			<td colspan="9">
+				<%= repository.description %>
+			</td>
 		</tr>
 	</tbody>
 </table>

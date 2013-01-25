@@ -1,5 +1,5 @@
 class List < ActiveRecord::Base
-  attr_accessible :description, :title, :listings_attributes
+  attr_accessible :title, :description, :listings_attributes
   has_many :listings, :order => "ordering"
   has_many :repositories, :through => :listings
 

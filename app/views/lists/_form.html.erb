@@ -1,11 +1,11 @@
 <%= form_for(@list) do |f| %>
 
 	<div class="field">
-		<%= f.label :title %>
+		<%= f.label :title, "List Title" %>
 		<%= f.text_field :title, :class => "input-xxlarge" %>
 	</div>
 	<div class="field">
-		<%= f.label :description %>
+		<%= f.label :description, "List Description" %>
 		<%= f.text_area :description, :row => 5, :class => "list-description" %>
 	</div>
 	<div id="listing-forms">
