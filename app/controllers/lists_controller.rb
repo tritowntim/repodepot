@@ -15,9 +15,12 @@ class ListsController < ApplicationController
 
   def create
     @list = List.new(params[:list])
-    @list.save
-    # todo if save fails
-    redirect_to @list
+    if @list.save
+      # todo if save fails
+      redirect_to @list
+    else
+      render :action => :new
+    end
   end
 
   def edit
