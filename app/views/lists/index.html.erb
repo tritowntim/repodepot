@@ -1,28 +1,24 @@
 <h3>All Lists</h3>
 
-<table>
+<table class="table table-bordered">
 	<thead>
-		<tr>
-			<th>Id</th>
-			<th>Title</th>
+		<tr> 
+			<th>List Title</th>
+			<th>Repository Count</th> 
 			<th>Created At</th>
 			<th>Updated At</th>
-			<th>Repository Count</th>
-			<th>Comments</th>
 		</tr>
 	</thead>
 	<tbody>
 	<% @lists.each do |list| %>
 		<tr>
-			<td><%= link_to list.id, list %></td>
-			<td><%= list.title %></td>
-			<td><%= list.created_at %></td>
-			<td><%= list.updated_at %></td>
-			<td>todo</td>
-			<td>todo</td>			
+			<td><%= link_to list.title, list %></td>
+			<td class="numeric"><%= list.listings.count %></td>
+			<td><%= list.created_at.in_time_zone("Eastern Time (US & Canada)").strftime("%A, %B %d, %Y %l:%M %P") %></td>
+			<td><%= list.updated_at.in_time_zone("Eastern Time (US & Canada)").strftime("%A, %B %d, %Y %l:%M %P") %></td>
 		</tr>  
 	<% end %>
 	</tbody>
 </table>
 <br/>
-<%= link_to "new list", new_list_path %>
+<%= link_to "new list", new_list_path, :class => "btn btn-primary" %>
