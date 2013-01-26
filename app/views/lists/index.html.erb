@@ -13,9 +13,10 @@
 	<% @lists.each do |list| %>
 		<tr>
 			<td><%= link_to list.title, list %></td>
-			<td class="numeric"><%= list.listings.count %></td>
-			<td><%= list.created_at.in_time_zone("Eastern Time (US & Canada)").strftime("%A, %B %d, %Y %l:%M %P") %></td>
-			<td><%= list.updated_at.in_time_zone("Eastern Time (US & Canada)").strftime("%A, %B %d, %Y %l:%M %P") %></td>
+			<td class="numeric"><%= list.listings.count %></td> 
+			<!-- "%A, %B %d, %Y %l:%M %P" -->
+			<td><%= list.created_at.in_time_zone("Eastern Time (US & Canada)").strftime("%B %d, %Y %l:%M %P") %></td>
+			<td><%= list.updated_at.in_time_zone("Eastern Time (US & Canada)").strftime("%B %d, %Y %l:%M %P") %></td>
 		</tr>  
 	<% end %>
 	</tbody>

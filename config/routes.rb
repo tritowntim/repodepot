@@ -9,9 +9,9 @@ Repodepot::Application.routes.draw do
   end
   resources :lists
 
-  match "about" => "static#about"
+  match "home" => "home#home"
 
-  root :to => "static#about"
+  root :to => "home#home"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
