@@ -1,0 +1,10 @@
+console.log("search error")
+
+var search = "<%=  j (render :partial => 'search', :locals => {:repository => @repository, :commentary => nil}) %>"
+
+$(".repository-search").remove()
+$(".repo-search-container").append(search)
+showSearch()
+$("#full_repo_name").before('<div class="text-error">Repository "<%= j (params[:full_repo_name]) %>" not found on GitHub</div>')
+
+

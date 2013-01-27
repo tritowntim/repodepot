@@ -38,11 +38,18 @@ class RepositoriesController < ApplicationController
     else
     	@repository = @existing
     end
-    
-    respond_to do |format|
-      format.html 
-      format.js
-    end 
+
+    if (@repository.full_name == nil )
+      respond_to do |format|
+        format.html 
+        format.js { render :action => :search}
+      end 
+    else    
+      respond_to do |format|
+        format.html 
+        format.js
+      end 
+    end
   end
 
   # private

@@ -44,16 +44,16 @@ $(function() {
     $('form').on('click', '.add_listing', function(event) {
         event.preventDefault()
         console.log('.add_fields clicked')
-        $('.repository-search').toggleClass('invisible-ui')
-        $('.repository-search #full_repo_name').focus()
+        // $('.repository-search').toggleClass('invisible-ui')
+        // $('.repository-search #full_repo_name').focus()
+        showSearch()
         // var time = new Date().getTime()
         // var b = $("#blank-listing").html()
         // var regexp = new RegExp($(b).data('id'),'g')
         // $(event.target).before($("#blank-listing").html().replace(regexp,time))
     }) 
 
-
-    $('.cancel-repo-search').on('click', function(event) { 
+    $('.repo-search-container').on('click', '.cancel-repo-search', function(event) { 
       $('.repository-search').toggleClass('invisible-ui')
       $('.repository-search #full_repo_name').val('')
     })
@@ -72,4 +72,11 @@ $(function() {
     })    
 
 })
+
+function showSearch() {
+  $('.repository-search').toggleClass('invisible-ui')
+  $('div.text-error').remove()
+  $('.repository-search #full_repo_name').focus()
+}
+
 

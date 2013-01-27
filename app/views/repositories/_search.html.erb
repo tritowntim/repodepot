@@ -1,7 +1,7 @@
 <div class="repository-search invisible-ui">
 	<%= form_tag lookup_repositories_path, {:remote => true, :format => :js, :class => "form-inline"} do %>
  
-	    <%= label_tag "GitHub respository" %><br/>
+	    <%= label_tag "GitHub Respository ", "GitHub Respository" %><br/>
 	    <%= text_field_tag "full_repo_name", "", :class => "input-xxlarge" %>
 	    <%= submit_tag "add repo", :class => "btn" %> 
 	    <small><%= link_to "cancel", "#", :class => "cancel-repo-search" %></small>
