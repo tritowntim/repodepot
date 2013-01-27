@@ -17,10 +17,14 @@ repo_rails = GithubRepo.new("https://github.com/rails/rails").repository
 repo_rails.save!
 repo_jquery = GithubRepo.new("https://github.com/jquery/jquery").repository
 repo_jquery.save!
+repo_gh_api = GithubRepo.new("https://github.com/peter-murach/github").repository
+repo_gh_api.save!
+
 
 listing_repodepot_self = Listing.create!(:list_id => list_repodepot.id, :repository_id => repo_repodepot.id, :commentary => "The code base for this app.", :ordering => 1)
 listing_repodepot_rails = Listing.create!(:list_id => list_repodepot.id, :repository_id => repo_rails.id, :commentary => "RepoDepot is a Rails application.", :ordering => 2)
 listing_repodepot_jquery = Listing.create!(:list_id => list_repodepot.id, :repository_id => repo_jquery.id, :commentary => "Like most Rails 3 apps, RepoDepot uses JQuery.", :ordering => 3)
+listing_repodepot_gh_api = Listing.create!(:list_id => list_repodepot.id, :repository_id => repo_gh_api.id, :commentary => "Ruby gem for accessing GitHub API.", :ordering => 4)
 
 
 # LINKED IN LIST ######################
