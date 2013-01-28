@@ -1,4 +1,4 @@
-<h3>All Lists</h3>
+<h3><%= @lists_title %></h3>
 
 <table class="table table-bordered">
 	<thead>
@@ -26,6 +26,7 @@
 <br/>
 <% if current_user %>
 	<%= link_to "new list", new_list_path, :class => "btn btn-primary" %>
+	<%= link_to "all lists", all_lists_path %>
 	<br/>
 	<br/>
 <% end %>

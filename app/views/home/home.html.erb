@@ -1,7 +1,12 @@
 <h1>Repo Depot</h1>
 <p>"Twitter lists for GitHub repositories"</p>
 
-<%= link_to "lists", :lists %>
+<% if current_user %>
+	<%= link_to "lists", lists_path %>
+<% else %>
+	<%= link_to "lists", all_lists_path %>
+<% end %>
+
 <br/>
 <%= link_to "repositories", :repositories %>
 <br/>

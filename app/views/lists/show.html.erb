@@ -59,7 +59,11 @@
 	<br/>
 	<br/>
 <% end %>
-<%= link_to "all lists", lists_path %>
+<% if current_user %>
+	<%= link_to "lists by #{current_user.name}", lists_path %>
+<% else %>
+	<%= link_to "all lists", all_lists_path %>
+<% end %>
 <br/>
 <br/>
 <br/>

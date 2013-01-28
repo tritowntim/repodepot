@@ -2,8 +2,19 @@ class ListsController < ApplicationController
 
   before_filter :authorize, :only =>[:new, :create, :edit, :update]
 
+  def all
+    @lists = List.all
+    @lists_title = "All Lists"
+    render :action => :index
+  end
+
   def index
-  	@lists = List.all
+    if current_user
+    	@lists = List.where :user_id => current_user.id 
+      @lists_title = "Lists by #{current_user.name}"
+    else 
+      redirect_to all_lists_path
+    end
   end
 
   def show
