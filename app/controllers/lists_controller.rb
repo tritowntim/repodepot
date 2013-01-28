@@ -1,6 +1,6 @@
 class ListsController < ApplicationController
 
-  before_filter :authorize, :only =>[:new, :create, :edit, :update]
+  before_filter :check_authentication, :only =>[:new, :create, :edit, :update]
 
   def all
     @lists = List.all
@@ -40,16 +40,26 @@ class ListsController < ApplicationController
 
   def edit
     @list = find_list
-    @blank_listing = Listing.new
-    @blank_listing.list_id = @list.id
+    if authorized_owner?(@list) 
+      @blank_listing = Listing.new
+      @blank_listing.list_id = @list.id
+    else
+      puts "UNAUTHORIZED"
+      redirect_to @list, :alert => "Only the list owner #{@list.user.name} may change list contents."
+    end
   end
 
   def update
     @list = find_list
-    if @list.update_attributes(params[:list])
-      redirect_to @list
+    if authorized_owner?(@list) 
+      if @list.update_attributes(params[:list])
+        redirect_to @list
+      else
+        render :edit
+      end
     else
-      render :edit
+      puts "UNAUTHORIZED"
+      redirect_to @list, :alert => "Only the list owner #{@list.user.name}  may change list contents."
     end
   end
 
