@@ -83,6 +83,15 @@ GEM
       jwt (~> 0.1.4)
       multi_json (~> 1.0)
       rack (~> 1.2)
+    omniauth (1.1.1)
+      hashie (~> 1.2)
+      rack
+    omniauth-github (1.0.3)
+      omniauth (~> 1.0)
+      omniauth-oauth2 (~> 1.1)
+    omniauth-oauth2 (1.1.1)
+      oauth2 (~> 0.8.0)
+      omniauth (~> 1.0)
     pg (0.12.2)
     polyglot (0.3.3)
     rack (1.4.3)
@@ -160,6 +169,7 @@ DEPENDENCIES
   capybara (= 1.1.2)
   github_api
   jquery-rails (~> 2.1)
+  omniauth-github
   pg (= 0.12.2)
   rails (= 3.2.11)
   rspec-rails (= 2.11.0)
