@@ -4,4 +4,13 @@
 <%= link_to "lists", :lists %>
 <br/>
 <%= link_to "repositories", :repositories %>
-
+<br/>
+<br/>
+<% if current_user %>
+	Logged in as <%= current_user.name %>
+	<%= link_to "log out", logout_path %>
+<% else %>
+	<%= link_to "log in with GitHub", "/auth/github" %>
+<% end %>
+<br/>
+<br/>
