@@ -8,4 +8,8 @@ class ApplicationController < ActionController::Base
 
     # designate as helper method for access within view
     helper_method :current_user
+
+    def authorize
+    	redirect_to home_url, :alert => "Not authorized" if current_user.nil?
+    end
 end

@@ -1,4 +1,7 @@
 class ListsController < ApplicationController
+
+  before_filter :authorize, :only =>[:new, :create, :edit, :update]
+
   def index
   	@lists = List.all
   end
@@ -15,6 +18,7 @@ class ListsController < ApplicationController
 
   def create
     @list = List.new(params[:list])
+    @list.user_id = current_user.id
     if @list.save
       # todo if save fails
       redirect_to @list

@@ -6,6 +6,14 @@
 <%= link_to "repositories", :repositories %>
 <br/>
 <br/>
+<% #if flash[:notice] %>
+	<p class="text-success"><%= flash[:notice] %></p>
+<% #end %>
+<% #if flash[:error] %>
+	<p class="text-error"><%= flash[:alert] %></p>
+<% # end %>
+<br/>
+<br/>
 <% if current_user %>
 	Logged in as <%= current_user.name %>
 	<%= link_to "log out", logout_path %>

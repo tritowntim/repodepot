@@ -7,9 +7,16 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
+# DEFAULT/EXAMPLE USER #############################
+
+example = User.new
+example.provider = "none (seeded)"
+example.name = "example"
+example.save
+
 # REPODEPOT STACK LIST ######################
 
-list_repodepot = List.create!(:title => "RepoDepot Application Stack", :description => "All repos used to build RepoDepot, including the app itself.")
+list_repodepot = List.create!(:title => "RepoDepot Application Stack", :description => "All repos used to build RepoDepot, including the app itself.", :user_id => example.id)
 
 repo_repodepot = GithubRepo.new("https://github.com/tritowntim/repodepot").repository
 repo_repodepot.save!
@@ -29,7 +36,7 @@ listing_repodepot_gh_api = Listing.create!(:list_id => list_repodepot.id, :repos
 
 # LINKED IN LIST ######################
 
-list_li = List.create!(:title => "LinkedIn Client-Side Templating Throwdown", :description => "LinkedIn evaluation of 18 different client-side Javascript templating solutions.  Article here: http://engineering.linkedin.com/frontend/client-side-templating-throwdown-mustache-handlebars-dustjs-and-more These three projects were not hosted on GitHub: KiTE http://code.google.com/p/kite/ Google Closure Templates https://developers.google.com/closure/templates/ EJS http://embeddedjs.com/ ")
+list_li = List.create!(:title => "LinkedIn Client-Side Templating Throwdown", :description => "LinkedIn evaluation of 18 different client-side Javascript templating solutions.  Article here: http://engineering.linkedin.com/frontend/client-side-templating-throwdown-mustache-handlebars-dustjs-and-more These three projects were not hosted on GitHub: KiTE http://code.google.com/p/kite/ Google Closure Templates https://developers.google.com/closure/templates/ EJS http://embeddedjs.com/", :user_id => example.id)
 
 i = 0
 repos_li = ["https://github.com/documentcloud/underscore", "https://github.com/visionmedia/jade", "https://github.com/creationix/haml-js", "https://github.com/aefxx/jQote2", "https://github.com/olado/doT", "https://github.com/thetalecrafter/stencil", "https://github.com/ollym/parrot", "https://github.com/sstephenson/eco", "https://github.com/jquery/jquery-tmpl", "https://github.com/cramforce/node-asyncEJS", "https://github.com/janl/mustache.js", "https://github.com/akdubya/dustjs", "https://github.com/wycats/handlebars.js", "https://github.com/akaspin/nun", "https://github.com/raycmorgan/Mu"].each do |url| 
@@ -44,7 +51,7 @@ end
 
 # RAILS ALTERNATIVES ##############
 
-list_alt = List.create!(:title => "Ruby Web Alternatives to Rails", :description => "Other Ruby frameworks besides Rails.")
+list_alt = List.create!(:title => "Ruby Web Alternatives to Rails", :description => "Other Ruby frameworks besides Rails.", :user_id => example.id)
 
 i = 0
 repos_alt = ["https://github.com/sinatra/sinatra", "https://github.com/padrino/padrino-framework", "https://github.com/camping/camping", "https://github.com/ramaze/ramaze", "https://github.com/renee-project/renee",  "https://github.com/mtodd/halcyon", "https://github.com/mikbe/blast"].each do |url| 

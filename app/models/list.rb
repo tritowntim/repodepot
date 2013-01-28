@@ -1,7 +1,8 @@
 class List < ActiveRecord::Base
-  attr_accessible :title, :description, :listings_attributes
+  attr_accessible :title, :description, :user_id, :listings_attributes
   has_many :listings, :order => "ordering"
   has_many :repositories, :through => :listings
+  belongs_to :user
 
   validates_presence_of :title, :message => "cannot be blank"
   validates_presence_of :description, :message => "cannot be blank"

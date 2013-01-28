@@ -21,7 +21,10 @@ class GithubRepo
 
   def lookup 
     begin
-      @gh = Github.repos.get @owner, @repo_name 
+      # todo: replace with OAuth somehow, and/or use user's account 
+      github = Github.new :login => ENV['GITHUB_USERNAME'], :password => ENV['GITHUB_PASSWORD']
+      @gh = github.repos.get @owner, @repo_name 
+      puts "RATE LIMIT REMAINING = " + @gh.ratelimit_remaining
       true
     rescue Github::Error::NotFound => e
       puts "GHERROR = " + e.message
