@@ -103,7 +103,7 @@ listing_trello_underscore = Listing.create!(:list_id => list_trello.id, :reposit
 
 ################# GITHUB API Wrappers ########################
  
-list_api = List.create!(:title => "GitHub API Wrappers ", :description => "Libraries that provide idiomatic wrappres of the GitHub web service APIs", :user_id => example.id)
+list_api = List.create!(:title => "GitHub API Wrappers", :description => "Libraries that provide idiomatic wrappres of the GitHub web service APIs", :user_id => example.id)
 listing_api = Listing.create!(:list_id => list_api.id, :repository_id => repo_gh_api.id, :commentary => "Ruby gem for GitHub APIs", :ordering => 1)
 
 i = 1
