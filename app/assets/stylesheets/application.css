@@ -37,3 +37,7 @@ th {
 	float:right !important;
 	font-size: 14px !important;
 }
+
+.app-subtitle {
+	line-height: 18px;
+}

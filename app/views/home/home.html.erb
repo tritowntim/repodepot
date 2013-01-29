@@ -1,5 +1,33 @@
 <h1>Repo Depot</h1>
-<p>"Twitter lists for GitHub repositories"</p>
+<h2 class="app-subtitle"><small>&#8220;Twitter lists for GitHub repositories&#8221;</small></h2>
+
+<br/>
+
+<p>
+	Compare similar libraries...
+	<br/>
+	<%= link_to @throwdown_list.title, @throwdown_list %>
+	<br/>
+	<%= pluralize(@throwdown_list.repositories.count, "repository") %>
+</p>
+
+<p>
+	Document the stack of an application...
+	<br/>
+	<%= link_to @trello_list.title, @trello_list %>
+	<br/>
+	<%= pluralize(@trello_list.repositories.count, "repository") %>
+</p>
+
+
+<p>
+	See example usages of an API...
+	<br/>
+	<%= link_to @github_api_list.title, @github_api_list %>
+	<br/>
+	<%= pluralize(@github_api_list.repositories.count, "repository") %>
+</p>
+
 
 <% if current_user %>
 	<%= link_to "lists", lists_path %>
@@ -8,23 +36,5 @@
 <% end %>
 
 <br/>
-<%= link_to "repositories", :repositories %>
-<br/>
-<br/>
-<% #if flash[:notice] %>
-	<p class="text-success"><%= flash[:notice] %></p>
-<% #end %>
-<% #if flash[:error] %>
-	<p class="text-error"><%= flash[:alert] %></p>
-<% # end %>
-<br/>
-<br/>
-<% if current_user %>
-	Logged in as <%= current_user.name %>
-	<%= link_to "log out", logout_path %>
-<% else %>
-	<%= link_to "log in with GitHub", "/auth/github" %>
-<% end %>
-<!-- todo: replace above with partial -->
 <br/>
 <br/>
