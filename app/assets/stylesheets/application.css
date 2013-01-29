@@ -32,3 +32,8 @@ th {
 	padding-top: 2px !important;
 	padding-bottom: 2px !important;
 }
+
+.brand.login {
+	float:right !important;
+	font-size: 14px !important;
+}

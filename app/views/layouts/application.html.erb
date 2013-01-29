@@ -8,6 +8,17 @@
 </head>
 <body>
 
+	<div class="navbar navbar-static-top navbar-inverse">
+		<div class="navbar-inner">
+			<% if request.fullpath != home_path && request.fullpath != root_path %>
+				<%= link_to "RepoDepot", :home, :class => "brand" %>
+			<% end %>
+			<div class="brand login">
+				<%= render "home/login" %>
+			</div>
+		</div>
+	</div>
+	
 	<div class="container">
 		<%= yield %>
 	</div>
