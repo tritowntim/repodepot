@@ -36,7 +36,7 @@ listing_repodepot_gh_api = Listing.create!(:list_id => list_repodepot.id, :repos
 
 ################# LINKED IN LIST ######################
 
-list_li = List.create!(:title => "LinkedIn Client-Side Templating Throwdown", :description => "LinkedIn evaluation of 18 different client-side Javascript templating solutions.  Article here: http://engineering.linkedin.com/frontend/client-side-templating-throwdown-mustache-handlebars-dustjs-and-more These three projects were not hosted on GitHub: KiTE http://code.google.com/p/kite/ Google Closure Templates https://developers.google.com/closure/templates/ EJS http://embeddedjs.com/", :user_id => example.id)
+list_li = List.create!(:title => "LinkedIn's Client-Side Templating Throwdown", :description => "LinkedIn evaluation of 18 different client-side Javascript templating solutions.  Article here: http://engineering.linkedin.com/frontend/client-side-templating-throwdown-mustache-handlebars-dustjs-and-more These three projects were not hosted on GitHub: KiTE http://code.google.com/p/kite/ Google Closure Templates https://developers.google.com/closure/templates/ EJS http://embeddedjs.com/", :user_id => example.id)
 
 i = 0
 repos_li = ["https://github.com/documentcloud/underscore", "https://github.com/visionmedia/jade", "https://github.com/creationix/haml-js", "https://github.com/aefxx/jQote2", "https://github.com/olado/doT", "https://github.com/thetalecrafter/stencil", "https://github.com/ollym/parrot", "https://github.com/sstephenson/eco", "https://github.com/jquery/jquery-tmpl", "https://github.com/cramforce/node-asyncEJS", "https://github.com/janl/mustache.js", "https://github.com/akdubya/dustjs", "https://github.com/wycats/handlebars.js", "https://github.com/akaspin/nun", "https://github.com/raycmorgan/Mu"].each do |url| 
@@ -51,7 +51,7 @@ end
 
 ################# RAILS ALTERNATIVES ##############
 
-list_alt = List.create!(:title => "Ruby Web Alternatives to Rails", :description => "Other Ruby frameworks besides Rails.", :user_id => example.id)
+list_alt = List.create!(:title => "Ruby Web Frameworks: Alternatives to Rails", :description => "Other Ruby frameworks besides Rails.", :user_id => example.id)
 
 i = 0
 repos_alt = ["https://github.com/sinatra/sinatra", "https://github.com/padrino/padrino-framework", "https://github.com/camping/camping", "https://github.com/ramaze/ramaze", "https://github.com/renee-project/renee",  "https://github.com/mtodd/halcyon", "https://github.com/mikbe/blast"].each do |url| 
@@ -96,13 +96,28 @@ end
 i += 1
 listing_trello_jq = Listing.create!(:list_id => list_trello.id, :repository_id => repo_jquery.id, :commentary => "", :ordering => i)
 
+i += 1
+repo_underscore = Repository.where("full_name = ?", "documentcloud/underscore").first
+listing_trello_underscore = Listing.create!(:list_id => list_trello.id, :repository_id => repo_underscore.id, :commentary => "", :ordering => i)
 
 
-
+################# GITHUB API Wrappers ########################
  
-# ToDo: remove, reference from Rails Recipes book
-# chad = Person.create!(:name => "Chad", :location => "Boulder, CO") 
-# rich = Person.create!(:name => "Rich", :location => "Reston, VA")
-# %w(Shrenik Arnie Polkadot).each do |pet_name| chad.pets.create!(:name => pet_name)
-# end
-# rich.pets.create!(:name => "Ewok")
+list_api = List.create!(:title => "GitHub API Wrappers ", :description => "Libraries that provide idiomatic wrappres of the GitHub web service APIs", :user_id => example.id)
+listing_api = Listing.create!(:list_id => list_api.id, :repository_id => repo_gh_api.id, :commentary => "Ruby gem for GitHub APIs", :ordering => 1)
+
+i = 1
+repos_api = []
+repos_api << {:url => "https://github.com/mikedeboer/node-github", :comment => "node.js packaged module for GitHub API" }
+repos_api << {:url => "https://github.com/eclipse/egit-github", :comment => "GitHub Java API library, part of the GitHub Mylyn Connector" }
+repos_api << {:url => "https://github.com/owainhunt/uagithubengine", :comment => "Objective-C Wrapper for the Github API, supports both OS X and iOS" }
+repos_api.each do |repo| 
+	repo_api = GithubRepo.new(repo[:url]).repository
+	repo_api.save!
+
+  i += 1
+  listing_api = Listing.create!(:list_id => list_api.id, :repository_id => repo_api.id, :commentary => repo[:comment], :ordering => i)
+
+end
+
+
