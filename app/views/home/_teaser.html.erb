@@ -1,0 +1,13 @@
+<div class="list-teaser">
+	<p>
+		<%= "#{tease_description}..." %>
+		<br/>
+		<% if list %>
+			<div class="list-tease-title-count">
+				<%= link_to list.title, list %>
+				<br/>
+				<%= pluralize(list.repositories.count, "repository") %>
+			</div>
+		<% end %>
+	</p>
+</div>

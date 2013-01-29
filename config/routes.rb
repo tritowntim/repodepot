@@ -14,12 +14,14 @@ Repodepot::Application.routes.draw do
   end
 
   match 'home' => 'home#home'
+  match 'roadmap' => 'home#roadmap', :as => 'roadmap'
 
-  root :to => 'home#home'
-
+  # omniauth authentication
   match 'auth/:provider/callback', :to => 'sessions#create'
   match 'auth/failure', :to => redirect('/')  
   match 'logout', :to => 'sessions#destroy', :as => 'logout'
+
+  root :to => 'home#home'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

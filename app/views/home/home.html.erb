@@ -1,40 +1,44 @@
-<h1>Repo Depot</h1>
-<h2 class="app-subtitle"><small>&#8220;Twitter lists for GitHub repositories&#8221;</small></h2>
+<h1>Repo Depot<small>&nbsp;&nbsp;&nbsp;&nbsp;&#8220;Like Twitter lists for GitHub repositories&#8221;</small></h1>
+<!-- <h2 class="app-subtitle"><small>&#8220;Twitter lists for GitHub repositories&#8221;</small></h2> -->
+<p>Create lists of GitHub repositories. Add notes.</p>
 
 <br/>
 
-<p>
-	Compare similar libraries...
-	<br/>
-	<%= link_to @throwdown_list.title, @throwdown_list %>
-	<br/>
-	<%= pluralize(@throwdown_list.repositories.count, "repository") %>
-</p>
+<div class="example-list-teasers">
+	<%= render :partial => "teaser", :locals => {:list => @throwdown_list, :tease_description => "Compare similar libraries"} %>
+	<%= render :partial => "teaser", :locals => {:list => @trello_list, :tease_description => "Document the stack of an application"} %>
+	<%= render :partial => "teaser", :locals => {:list => @github_api_list, :tease_description => "See example usages of an API"} %>
+	<div>
+		<p>
+			Add notes to your starred repos...
+			<br/>
+			<div class="list-tease-title-count">
+				(So you can remember why you starred them)
+				<br/>
+				<%= link_to "~ coming soon ~", :roadmap %> 
+				<br/>
+				<br/>
+				<%= link_to "Roadmap", :roadmap %>
+			</div>
+		</p>
+	</div>	
+</div>
 
-<p>
-	Document the stack of an application...
-	<br/>
-	<%= link_to @trello_list.title, @trello_list %>
-	<br/>
-	<%= pluralize(@trello_list.repositories.count, "repository") %>
-</p>
-
-
-<p>
-	See example usages of an API...
-	<br/>
-	<%= link_to @github_api_list.title, @github_api_list %>
-	<br/>
-	<%= pluralize(@github_api_list.repositories.count, "repository") %>
-</p>
-
-
-<% if current_user %>
-	<%= link_to "lists", lists_path %>
-<% else %>
-	<%= link_to "lists", all_lists_path %>
-<% end %>
-
-<br/>
-<br/>
-<br/>
+<div class="list-actions">
+	<% if current_user %>
+		<%= link_to "Lists by #{current_user.name}", lists_path %> <span class="badge badge-success"><%= @user_list_count %></span>
+		<br/>
+		<br/>
+	<% end %>
+	<%= link_to "Explore all lists", all_lists_path %> <span class="badge badge-success"><%= @all_list_count %></span>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+	<% if current_user %>
+		<%= link_to "Create a new list", new_list_path, :class => "btn btn-primary" %>
+	<% else %>
+		<%= render "login" %>			
+		<span> ... and start list'n!</span>
+	<% end %>
+</div>
