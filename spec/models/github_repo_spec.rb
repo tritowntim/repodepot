@@ -15,14 +15,20 @@ describe "GithubRepo" do
 			expect(repo.github_id).to eq 2126244
 		end
 
-		it "validates repo name input" do 
+		it "validates valid repo name input" do 
 			expect(gh.validate("twitter/bootstrap")).to eq true
-			expect(gh.validate("twitter bootstrap")).to eq false
+		end
+
+		it "finds invalid repo name input" do 
+			expect {gh.validate("twitter bootstrap")}.to raise_error(ArgumentError)
 		end
 
 		it "validates URL input" do 
 			expect(gh.validate("https://github.com/twitter/bootstrap")).to eq true
-			expect(gh.validate("https://gh.com/twitter/bootstrap")).to eq false
+		end
+
+		it "finds invalid URL input" do 
+			expect {gh.validate("https://gh.com/twitter/bootstrap")}.to raise_error(ArgumentError)
 		end
 
 		it "handles repo-not-found gracefully" do 

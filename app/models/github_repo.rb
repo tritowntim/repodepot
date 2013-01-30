@@ -14,7 +14,7 @@ class GithubRepo
       @owner, @repo_name = repo_ids[0], repo_ids[1]
       @owner.length > 0 && @repo_name.length > 0 
     else 
-      false
+      raise ArgumentError, "Repository name/URL of '#{input}' has incorrect format; see examples below"
     end
     # todo: throw error if invalid
    end 

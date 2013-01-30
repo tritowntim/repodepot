@@ -31,15 +31,17 @@ class RepositoriesController < ApplicationController
 
     @existing = Repository.where("full_name = ?", params[:full_repo_name]).first
 
-    logger.info("EXISTING = #{@existing ? @existing.full_name : 'NOT FOUND'}")
-
-    if @existing == nil 
-      @repository = GithubRepo.new(params[:full_repo_name]).repository
+    if @existing == nil
+      begin
+        @repository = GithubRepo.new(params[:full_repo_name]).repository
+      rescue ArgumentError => e
+        @error_message = e.message
+      end 
     else
     	@repository = @existing
     end
 
-    if (@repository.full_name == nil )
+    if (!@repository || @repository.full_name == nil )
       respond_to do |format|
         format.html 
         format.js { render :action => :search}
