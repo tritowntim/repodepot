@@ -10,7 +10,7 @@ gem 'bootstrap-sass', '~> 2.2.2.0'
 gem 'pg', '0.12.2'
 
 group :development, :test do
-  gem 'rspec-rails', '2.11.0'
+	gem 'rspec-rails', '~> 2.11'
 end
 
 group :test do
