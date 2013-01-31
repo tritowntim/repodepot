@@ -7,11 +7,20 @@ Repodepot::Application.routes.draw do
       post :lookup
     end
   end
+
+  resources :listings do
+    collection do
+      get :search
+      post :lookup
+    end
+  end
+
   resources :lists do
     collection do
       get :all
     end
   end
+ 
 
   match 'home' => 'home#home'
   match 'roadmap' => 'home#roadmap', :as => 'roadmap'

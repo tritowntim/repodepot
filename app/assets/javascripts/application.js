@@ -62,7 +62,8 @@ $(function() {
         event.preventDefault()
         console.log('.remove_field clicked')
         console.log($(event.target))
-        $(event.target).prev('input[type=hidden]').val('1')
+         $(event.target).prev('input[type=hidden]').val('1')
+        //$(event.target).closest('.destroy').val('1')
         $(event.target).closest('fieldset').hide()
 
         // if $(this).parent().css('display') == 

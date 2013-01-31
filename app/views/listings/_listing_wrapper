@@ -1,0 +1,5 @@
+	<%= fields_for @list do |f| %>
+		<%= f.fields_for :listings, :child_index => Time.now.to_i do |ff| %> 
+			<%= render :partial => 'lists/listing', :locals => {:f => ff}, :layout => false %>   
+		<% end %>
+	<% end %>
