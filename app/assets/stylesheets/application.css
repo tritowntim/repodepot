@@ -60,6 +60,28 @@ td.speech-bubble {
 	border-collapse: collapse;
 }
 
+table.repo-condensed {
+	border-top: 1px solid #dddddd;
+}
+
+.repo-condensed td {
+	border-top: 1px solid #dddddd;
+	border-left: 1px solid #dddddd;
+	border-right: 1px solid #dddddd;
+}
+
+.repo-condensed th {
+	border-top: 1px solid #dddddd;
+	border-left: 1px solid #dddddd;
+	border-right: 1px solid #dddddd;
+}
+
+.repo-condensed .speech-bubble {
+	border-left: none;
+	border-right: none !important;
+}
+
+
 
 
  

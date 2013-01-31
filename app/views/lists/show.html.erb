@@ -30,7 +30,7 @@
 	</div>
 </div>
 
-<table class="table table-bordered repo-condensed">
+<table class="table repo-condensed">
 <!-- <div> -->
   <% @list.listings.each do |listing| %> 
     <%= render :partial => 'listing/listing_detail', :locals => {:listing => listing, :repository => listing.repository} %>
