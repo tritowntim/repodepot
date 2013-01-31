@@ -1,17 +1,17 @@
 console.log("lookup...")
 
 var n = "<%=  j (render :partial => 'condensed', :locals => {:repository => @repository, :commentary => nil}) %>"
+n = '<table class="table table-bordered repo-condensed">' + n + '</tbody></table>'
 var repositoryId = "<%= @repository.id %>"
 
 var time = new Date().getTime()
 var b = $("#blank-listing").html()
 var regexp = new RegExp($(b).data('id'),'g')
 $('#listing-forms').append($("#blank-listing").html().replace(regexp,time))
-// console.log("BY ID = " + $("#" + time + " form").html())
 
 // todo: cleanup this insertion/reference
-$("form","#" + time).parent().after(n)
-$("form","#" + time).parent().remove()
+$("#placeholder" + time).after(n)
+$("#placeholder" + time).remove()
 
 // todo: better way to reference, like ordering below?
 $("#list_listings_attributes_" + time + "_repository_id").val(repositoryId)
