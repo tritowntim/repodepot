@@ -1,4 +1,17 @@
-<div class="listing-detail">
+<!-- <div class="listing-detail"> -->
 		  <%= render :partial => 'repositories/condensed', :locals => {:repository => repository, :commentary => listing.commentary} %>    
-			<div class="commentary"><%= listing.commentary %></div> 
-</div>	
+			<tbody>
+				<tr>
+					<td colspan="9">
+						<div class="well">
+							<%= listing.commentary %>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="9">
+						 &nbsp; 
+					</td>
+				</tr>
+			</tbody>
+<!-- </div>	 -->

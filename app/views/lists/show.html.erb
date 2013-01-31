@@ -30,11 +30,13 @@
 	</div>
 </div>
 
-<div>
+<table class="table table-bordered repo-condensed">
+<!-- <div> -->
   <% @list.listings.each do |listing| %> 
     <%= render :partial => 'listing/listing_detail', :locals => {:listing => listing, :repository => listing.repository} %>
   <% end %>
-</div>
+<!-- </div> -->
+</table>
 
 <% if current_user && authorized_owner?(@list) %>
 	<%= link_to "edit", edit_list_path, :class => "btn btn-primary"  %>

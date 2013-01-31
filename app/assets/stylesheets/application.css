@@ -56,5 +56,8 @@ th {
 	width: 50%;
 }
 
+td.well {
+	margin: 20px !important;
+}
 
 
