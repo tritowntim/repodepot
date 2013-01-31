@@ -4,8 +4,6 @@
 		 		  		<%= render :partial => 'repositories/condensed', :locals => {:repository => f.object.repository, :commentary => f.object.commentary} %>  
 		 		  		</tbody>
 		 		  	</table>
-		 		  <% else %>
-				  	<%= render :partial => 'repositories/search', :locals => {:repository => Repository.new}, :layout => false %>  
 		 		  <% end %>
 		 		  <%= f.hidden_field :repository_id %> 
 		 		  <%= f.text_area :commentary, :class => :commentary %>
