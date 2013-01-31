@@ -36,17 +36,17 @@
   <% end %> 
 </table>
 
-<% if current_user && authorized_owner?(@list) %>
-	<%= link_to "edit", edit_list_path, :class => "btn btn-primary"  %>
-	<br/>
-	<br/>
-<% end %>
-<% if current_user %>
-	<%= link_to "lists by #{current_user.name}", lists_path %>
-<% else %>
+<div class="nav-actions">
+	<% if current_user && authorized_owner?(@list) %>
+		<%= link_to "edit", edit_list_path, :class => "btn btn-primary"  %>
+		<br/>
+		<br/>
+	<% end %>
+	<% if current_user %>
+		<%= link_to "lists by #{current_user.name}", lists_path %>
+	<% end %>
 	<%= link_to "all lists", all_lists_path %>
-<% end %>
+</div>
 <br/>
 <br/>
 <br/>
-

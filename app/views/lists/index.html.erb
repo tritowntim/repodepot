@@ -26,7 +26,14 @@
 <br/>
 <% if current_user %>
 	<%= link_to "new list", new_list_path, :class => "btn btn-primary" %>
-	<%= link_to "all lists", all_lists_path %>
 	<br/>
 	<br/>
 <% end %>
+<div class="nav-actions">
+	<% if current_user && request.fullpath != lists_path %>
+		<%= link_to "lists by #{current_user.name}", lists_path %>
+	<% end %>
+	<% if request.fullpath != all_lists_path %>
+		<%= link_to "all lists", all_lists_path %>
+	<% end %>
+</div>
