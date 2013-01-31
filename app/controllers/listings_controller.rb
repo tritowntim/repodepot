@@ -22,7 +22,7 @@ class ListingsController < ApplicationController
 	    if (!@repository || @repository.full_name == nil )
 	      respond_to do |format|
 	        format.html 
-	        format.js { render :action => :search}
+	        format.js { render :action => :search_listing}
 	      end 
 	    else    
 	      respond_to do |format|
