@@ -56,8 +56,10 @@ th {
 	width: 50%;
 }
 
-td.well {
-	margin: 20px !important;
+td.speech-bubble {
+	border-collapse: collapse;
 }
 
 
+
+ 
