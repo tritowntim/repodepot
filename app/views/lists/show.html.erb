@@ -30,12 +30,10 @@
 	</div>
 </div>
 
-<table class="table repo-condensed">
-<!-- <div> -->
+<table class="table repo-condensed"> 
   <% @list.listings.each do |listing| %> 
     <%= render :partial => 'listing/listing_detail', :locals => {:listing => listing, :repository => listing.repository} %>
-  <% end %>
-<!-- </div> -->
+  <% end %> 
 </table>
 
 <% if current_user && authorized_owner?(@list) %>

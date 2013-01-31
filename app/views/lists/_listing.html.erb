@@ -8,9 +8,13 @@
 		 		  	<div id="placeholder<%= f.object.object_id %>"></div>
 		 		  <% end %>
 		 		  <%= f.hidden_field :repository_id %> 
-		 		  <%= f.text_area :commentary, :class => :commentary %>
+		 		  <div class="commentary-text-area-container">
+						<div class="triangle-isosceles top">
+			 		  	<%= f.text_area :commentary, :class => :commentary %>
+				 		  <%= link_to "delete", "#", :class => "remove_field btn btn-danger btn-mini" %>
+			 		  </div>
+			 		</div>
 		 		  <%= f.hidden_field :ordering, :class => "ordering input-mini" %>
 		 		  <%= f.hidden_field :_destroy, :class => "destroy" %>
-		 		  <%= link_to "delete", "#", :class => "remove_field" %>
 		 		  <br/>
 	 		</fieldset>

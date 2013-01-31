@@ -81,7 +81,13 @@ table.repo-condensed {
 	border-right: none !important;
 }
 
+.cancel-list-form {
+	float: right;
+}
 
+.commentary-text-area-container {
+	margin-top: 20px;
+}
 
 
  
