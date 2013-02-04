@@ -21,7 +21,7 @@
   </div>
   <div id="listing-forms">
     <%= f.fields_for :listings do |ff| %> 
-      <%= render :partial => 'lists/listing', :locals => {:f => ff}, :layout => false %>   
+      <%= render :partial => 'listings/form', :locals => {:f => ff}, :layout => false %>   
     <% end %>
   </div>
 
