@@ -1,5 +1,5 @@
 
-var search = "<%=  j (render :partial => 'search_listing', :locals => {:repository => @repository, :commentary => nil}) %>"
+var search = "<%=  j (render :partial => 'add_form', :locals => {:repository => @repository, :commentary => nil}) %>"
 
 $(".repository-search").remove()
 $(".repo-search-container").append(search)

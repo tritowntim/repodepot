@@ -21,7 +21,7 @@
   </div>
   <div id="listing-forms">
     <%= f.fields_for :listings do |ff| %> 
-      <%= render :partial => 'listings/form', :locals => {:f => ff}, :layout => false %>   
+      <%= render :partial => 'listings/edit_form', :locals => {:f => ff}, :layout => false %>   
     <% end %>
   </div>
 
@@ -34,7 +34,7 @@
 <% end %>
 
 <div class="repo-search-container">
-  <%= render :partial => 'listings/search_listing' %>
+  <%= render :partial => 'listings/add_form' %>
 </div>
 
 
