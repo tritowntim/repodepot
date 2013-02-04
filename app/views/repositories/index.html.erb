@@ -7,7 +7,6 @@
 		<th>Repository</th>
 		<th>Github Created At</th>
 		<th>Github Updated At</th>
-		<th>Github Posted At</th>
 		<th>Watchers</th>
 		<th>Forks</th>
 		<th>Open Issues</th>
@@ -16,18 +15,7 @@
 	</thead>
 	<tbody>
 	<% @repositories.each do |repo| %>
-	  <tr>
-	  	<td><%= link_to repo.id, repo, {:remote => true} %></td>
-	  	<td><%= repo.full_name %></td>
-	  	<td><%= repo.gh_created_at %></td>
-	  	<td><%= repo.gh_updated_at %></td>
-	  	<td><%= repo.pushed_at %></td>
-	  	<td><%= repo.watchers_count %></td>
-	  	<td><%= repo.forks_count %></td>
-	  	<td><%= repo.open_issues_count %></td>
-	  	<td><%= repo.network_count %></td>
-	  	<td><%= repo.language %></td>
-	  </tr>
+ 		<%= render :partial => 'row', :locals => {:repo => repo} %>
 	<% end %>
 	</tbody>
 </table>
