@@ -1,7 +1,7 @@
 <div class="repository-search invisible-ui">
 	<%= form_tag lookup_listings_path, {:remote => true, :format => :js, :class => "form-inline"} do %>
  			<%= hidden_field_tag "list_id", @list.id %>
-	    <%= label_tag "GitHub Repo Owner/Name or URL", "LISTING (todo) GitHub Repo Owner/Name or URL" %><br/>
+	    <%= label_tag "GitHub Repo Owner/Name or URL", "GitHub Repo Owner/Name or URL" %><br/>
 	    <%= text_field_tag "full_repo_name", "", :class => "input-xxlarge" %>
 	    <%= submit_tag "add repo", :class => "btn" %> 
 	    <small><%= link_to "cancel", "#", :class => "cancel-repo-search" %></small>
