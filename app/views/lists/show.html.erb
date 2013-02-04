@@ -1,7 +1,5 @@
 <div class="header-group">
 	<div class="header">
-	</div>
-	<div class="header">
 		<div class="title">
 			<h3><%=@list.title %></h3>
 			<p>by <strong><%=@list.user.name %></strong></p>
@@ -9,8 +7,6 @@
 		<div class="repo-update-ago">
 			<small>updated<br/><%= " #{distance_of_time_in_words_to_now @list.updated_at} ago" %></small>
 		</div>
-	</div>
-	<div class="header">
 	</div>
 	<div>
 		<% if flash[:notice] %>
@@ -30,6 +26,7 @@
 	</div>
 </div>
 
+<!-- todo: why call this repo-condensed? -->
 <table class="table repo-condensed"> 
   <% @list.listings.each do |listing| %> 
     <%= render :partial => 'listings/listing_detail', :locals => {:listing => listing, :repository => listing.repository} %>
