@@ -11,33 +11,30 @@
     </div>
   <% end %>
 
-	<div class="field">
-		<%= f.label :title, "List Title" %>
-		<%= f.text_field :title, :class => "input-xxlarge" %>
-	</div>
-	<div class="field">
-		<%= f.label :description, "List Description" %>
-		<%= f.text_area :description, :row => 5, :class => "list-description" %>
-	</div>
-	<div id="listing-forms">
-		<%= f.fields_for :listings do |ff| %> 
-			<%= render :partial => 'lists/listing', :locals => {:f => ff}, :layout => false %>   
-		<% end %>
-	</div>
-<!-- 	<div class="add-repo">
-		<%= link_to "Add Repository", "#", :class => "add_listing btn btn-info" %>
-	</div>
- -->	
+  <div class="field">
+    <%= f.label :title, "List Title" %>
+    <%= f.text_field :title, :class => "input-xxlarge" %>
+  </div>
+  <div class="field">
+    <%= f.label :description, "List Description" %>
+    <%= f.text_area :description, :row => 5, :class => "list-description" %>
+  </div>
+  <div id="listing-forms">
+    <%= f.fields_for :listings do |ff| %> 
+      <%= render :partial => 'lists/listing', :locals => {:f => ff}, :layout => false %>   
+    <% end %>
+  </div>
+
   <div class="actions">
-		<%= f.submit "Save List", :class => "btn btn-primary" %>
-		<%= link_to "Add Repository", "#", :class => "add_listing btn btn-info" %>
-  	<%= link_to 'cancel', @list.new_record? ? :lists : :list, :class => "cancel-list-form" %>
-	</div> 
+    <%= f.submit "Save List", :class => "btn btn-primary" %>
+    <%= link_to "Add Repository", "#", :class => "add_listing btn btn-info" %>
+    <%= link_to 'cancel', @list.new_record? ? :lists : :list, :class => "cancel-list-form" %>
+  </div> 
  
 <% end %>
 
 <div class="repo-search-container">
-<%= render :partial => 'listings/search_listing' %>
+  <%= render :partial => 'listings/search_listing' %>
 </div>
 
 
