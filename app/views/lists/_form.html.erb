@@ -32,11 +32,7 @@
 		<%= f.submit "Save List", :class => "btn btn-primary" %>
 		<%= link_to "Add Repository", "#", :class => "add_listing btn btn-info" %>
   	<%= link_to 'cancel', @list.new_record? ? :lists : :list, :class => "cancel-list-form" %>
-	</div>
- 
-	<%= f.fields_for :listings, @blank_listing, :child_index => @blank_listing.object_id do |ff| %>  
-		<%= render :partial => 'lists/listing_script', :locals => {:f => ff} %>
-	<% end %>  
+	</div> 
  
 <% end %>
 
