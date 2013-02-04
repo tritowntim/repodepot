@@ -12,17 +12,11 @@
 	</thead>
 	<tbody>
 	<% @lists.each do |list| %>
-		<tr>
-			<td><%= link_to list.title, list %></td>
-			<td><%= list.user.name %></td>
-			<td class="numeric"><%= list.listings.count %></td> 
-			<!-- "%A, %B %d, %Y %l:%M %P" -->
-			<td><%= list.created_at.in_time_zone("Eastern Time (US & Canada)").strftime("%B %d, %Y %l:%M %P") %></td>
-			<td><%= list.updated_at.in_time_zone("Eastern Time (US & Canada)").strftime("%B %d, %Y %l:%M %P") %></td>
-		</tr>  
+		<%= render :partial => 'list', :locals => {:list => list } %>
 	<% end %>
 	</tbody>
 </table>
+
 <br/>
 <% if current_user %>
 	<%= link_to "new list", new_list_path, :class => "btn btn-primary" %>
