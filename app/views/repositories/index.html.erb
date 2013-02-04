@@ -1,17 +1,17 @@
-<h1>Repositories#index</h1>
-<p>Find me in app/views/repositories/index.html.erb</p>
+<h3>Repositories</h3>
+<p>RepoDepot snapshot of GitHub data for repositories listed at least once<small> (used for debugging)</small></p>
 
-<table>
+<table class="table table-bordered table-striped">
 	<thead>
-		<th>Id</th>
+		<th>ID</th>
 		<th>Repository</th>
-		<th>Github Created At</th>
-		<th>Github Updated At</th>
+		<th>Github<br/>Created At</th>
+		<th>Github<br/>Updated At</th>
 		<th>Watchers</th>
 		<th>Forks</th>
-		<th>Open Issues</th>
-		<th>Network Count</th>
-		<th>Language</th>
+		<th>Open<br/>Issues</th>
+		<th>Network<br/>Count</th> 
+		<th>RepoDepot<br/>Retrieved At</th>
 	</thead>
 	<tbody>
 	<% @repositories.each do |repo| %>
