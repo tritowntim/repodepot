@@ -1,5 +1,7 @@
 <h3><%= @repository.full_name %></h3>
-<p><%= "RepoDepot snapshot of GitHub repository as of #{distance_of_time_in_words_to_now @repository.created_at} ago " %></p>
+<p><%= "RepoDepot snapshot of this "%>
+	 <%= link_to('GitHub repository', @repository.html_url)%>
+	 <%="as of #{distance_of_time_in_words_to_now @repository.created_at} ago " %></p>
 
 <%= render :partial => 'detail', :locals => {:repository => :repository} %>
 

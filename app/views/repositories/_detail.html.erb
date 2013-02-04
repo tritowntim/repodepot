@@ -1,58 +1,66 @@
 <div class="record-detail">
-	<div class="name-value">
+	<div>
 		<label>Github ID</label>
 		<p><%=@repository.github_id %></p>
 	</div>
-	<div class="name-value">
+	<div>
 		<label>Owner Login</label>
 		<p><%=@repository.owner_login %></p>
 	</div>
-	<div class="name-value">
+	<div>
 		<label>Name</label>
 		<p><%=@repository.name %></p>
 	</div>
-	<div class="name-value">
+	<div>
 		<label>Full Name</label>
 		<p><%=@repository.full_name %></p>
 	</div>
-	<div class="name-value">
+	<div>
 		<label>GitHub Created At</label>
-		<p><%=@repository.gh_created_at %></p>
+		<p><%=@repository.gh_created_at.localtime.strftime "%b %-d %Y %l:%M %p" %></p>
 	</div>
-	<div class="name-value">
+	<div>
 		<label>GitHub Updated At</label>
-		<p><%=@repository.gh_updated_at %></p>
+		<p><%=@repository.gh_updated_at.localtime.strftime "%b %-d %Y %l:%M %p" %></p>
 	</div>
-	<div class="name-value">
+	<div>
 		<label>GitHub Pushed At</label>
-		<p><%=@repository.pushed_at %></p>
+		<p><%=@repository.pushed_at.localtime.strftime "%b %-d %Y %l:%M %p" %></p>
 	</div>
-	<div class="name-value">
+	<div>
 		<label>Watchers Count</label>
-		<p><%=@repository.watchers_count %></p>
+		<p><%= number_with_delimiter @repository.watchers_count %></p>
 	</div>
-	<div class="name-value">
+	<div>
+		<label>Forks Count</label>
+		<p><%= number_with_delimiter @repository.forks_count %></p>
+	</div>
+	<div>
 		<label>Open Issues Count</label>
-		<p><%=@repository.open_issues_count %></p>
+		<p><%= number_with_delimiter @repository.open_issues_count %></p>
 	</div>
-	<div class="name-value">
+	<div>
 		<label>Network Count</label>
-		<p><%=@repository.network_count %></p>
+		<p><%= number_with_delimiter @repository.network_count %></p>
 	</div>
-	<div class="name-value">
+	<div>
 		<label>Language</label>
 		<p><%=@repository.language %></p>
 	</div>
-	<div class="name-value">
+	<div>
 		<label>Description</label>
 		<p><%=@repository.description %></p>
 	</div>
-	<div class="name-value">
+	<div>
 		<label>Clone URL</label>
 		<p><%=@repository.clone_url %></p>
 	</div>
-	<div class="name-value">
+	<div>
 		<label>HTML URL</label>
-		<p><%=@repository.html_url %></p>
+		<p><%= link_to @repository.html_url, @repository.html_url %></p>
+	</div>
+	<div>
+		<label>RepoDepot Retrieved At</label>
+		<p><%=@repository.created_at.localtime.strftime "%b %-d %Y %l:%M %p" %></p>
 	</div>
 </div>

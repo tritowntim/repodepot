@@ -8,12 +8,13 @@
  border-collapse:collapse;
 }
 
-.name-value {
+.record-detail div {
 	display: table-row;
 }
 
-.name-value * {
+.record-detail div > * {
 	display: table-cell;
+	padding: 4px;
 }
 
 
