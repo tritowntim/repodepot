@@ -62,17 +62,22 @@ $(function() {
         event.preventDefault()
         console.log('.remove_field clicked')
         console.log($(event.target))
-         $(event.target).prev('input[type=hidden]').val('1')
+        $(event.target).prev('input[type=hidden]').val('1')
         //$(event.target).closest('.destroy').val('1')
         $(event.target).closest('fieldset').hide()
 
         // if $(this).parent().css('display') == 
-        $('fieldset .ordering').each(function(i) { console.log($(this).parent().css('display')) } )
+        //$('.ordering').each(function(i) { console.log($(this).parent().css('display')) } )
         //$('fieldset .ordering').filter(function(i) { $(this).parent().css('display') == 'block' }).each(function(i) { $(this).val(i) } )
-        $('fieldset .ordering').filter(function(i) { return $(this).parent().css('display') == 'block' }).each(function(i) { $(this).val(i+1) } )
+        //$('.ordering').filter(function(i) { return $(this).parent().css('display') == 'block' }).each(function(i) { $(this).val(i+1) } )
+        updateAllOrdering();
     })    
 
 })
+
+function updateAllOrdering() {
+    $('.ordering').filter(function(i) { return $(this).parent().css('display') == 'block' }).each(function(i) { $(this).val(i+1) } )
+}
 
 function showSearch() {
   $('.repository-search').toggleClass('invisible-ui')
