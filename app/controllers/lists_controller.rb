@@ -8,6 +8,7 @@ class ListsController < ApplicationController
     render :action => :index
   end
 
+  # default /lists to only those owned by logged in user
   def index
     if current_user
     	@lists = List.where :user_id => current_user.id 
@@ -31,13 +32,14 @@ class ListsController < ApplicationController
     @list = List.new(params[:list])
     @list.user_id = current_user.id
     if @list.save
-      # todo if save fails
+      # todo if save fails, does error appear?
       redirect_to @list
     else
       render :action => :new
     end
   end
 
+  # todo: DRY on AUTHORIZED method below
   def edit
     @list = find_list
     if authorized_owner?(@list) 
