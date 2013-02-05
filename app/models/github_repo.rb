@@ -10,7 +10,6 @@ class GithubRepo
   def valid_input?  
     full_repo_name = @input.gsub("https://github.com/","")
     if full_repo_name.count("/") == 1
-      # repo_ids = input[19,input.length-1].split("/")
       repo_ids = full_repo_name.split("/")
       @owner, @repo_name = repo_ids[0], repo_ids[1]
       if @owner.length > 0 && @repo_name.length > 0
