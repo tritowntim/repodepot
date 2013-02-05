@@ -2,4 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// todo: nest with Sass
+.record-detail {
+  display: table;
+  border-collapse:collapse;
+}
 
+.record-detail div {
+  display: table-row;
+}
+
+.record-detail div > * {
+  display: table-cell;
+  padding: 4px;
+}
