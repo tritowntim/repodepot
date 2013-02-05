@@ -29,7 +29,7 @@
 <!-- todo: why call this repo-condensed? -->
 <table class="table repo-condensed"> 
   <% @list.listings.each do |listing| %> 
-    <%= render :partial => 'listings/listing_detail', :locals => {:listing => listing, :repository => listing.repository} %>
+    <%= render :partial => 'listings/show', :locals => {:listing => listing, :repository => listing.repository} %>
   <% end %> 
 </table>
 
