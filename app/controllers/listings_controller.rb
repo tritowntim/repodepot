@@ -14,11 +14,13 @@ class ListingsController < ApplicationController
 	    	@repository = @existing
 	    end
  
- 				@listing = Listing.new
- 				@listing.repository = @repository
-	    	@list = List.new 
-	    	@list.listings << @listing
+ 			# move to static method, add notes
+			@listing = Listing.new
+			@listing.repository = @repository
+    	@list = List.new 
+    	@list.listings << @listing
 
+    	# use @error_message to determine success/not
 	    if (!@repository || @repository.full_name == nil )
 	      respond_to do |format|
 	        format.html 

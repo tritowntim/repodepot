@@ -1,6 +1,8 @@
 class HomeController < ApplicationController
 	
   def home
+    # todo: define these titles as constants, to avoid repeating here and seed file
+    # for Rails, where is appropriate place to define constants to be used across app?  
   	@throwdown_list = List.where("title = ?", "LinkedIn's Client-Side Templating Throwdown").first
   	@trello_list = List.where("title = ?", "The Trello Stack").first
   	@github_api_list = List.where("title = ?", "GitHub API Wrappers").first

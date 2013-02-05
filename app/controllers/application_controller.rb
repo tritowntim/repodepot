@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
     end
 
     def check_authentication
-    	redirect_to home_url, :alert => "Not logged in." if current_user.nil?
+    	redirect_to home_url, :alert => "Would you like to enter new lists, or change existing lists? Please log in with your GitHub account." if current_user.nil?
     end
 
     def authorized_owner?(list)
