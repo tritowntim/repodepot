@@ -12,7 +12,7 @@ class GithubRepo
     if full_repo_name.count("/") == 1
       repo_ids = full_repo_name.split("/")
       @owner, @repo_name = repo_ids[0], repo_ids[1]
-      if @owner.length > 0 && @repo_name.length > 0
+      if @owner && @owner.length > 0 && @repo_name && @repo_name.length > 0
         true
       else
         raise_invalid_input_format 
