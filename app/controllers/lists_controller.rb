@@ -39,15 +39,13 @@ class ListsController < ApplicationController
     end
   end
 
-  # todo: DRY on AUTHORIZED method below
   def edit
     @list = find_list
     if authorized_owner?(@list) 
       @blank_listing = Listing.new
       @blank_listing.list_id = @list.id
     else
-      puts "UNAUTHORIZED"
-      redirect_to @list, :alert => "Only the list owner #{@list.user.name} may change list contents."
+      handle_unauthorized
     end
   end
 
@@ -55,18 +53,22 @@ class ListsController < ApplicationController
     @list = find_list
     if authorized_owner?(@list) 
       if @list.update_attributes(params[:list])
+        # todo if save fails, does error appear?
         redirect_to @list
       else
         render :edit
       end
     else
-      puts "UNAUTHORIZED"
-      redirect_to @list, :alert => "Only the list owner #{@list.user.name}  may change list contents."
+      handle_unauthorized
     end
   end
 
   private 
     def find_list
       List.find(params[:id])
+    end
+
+    def handle_unauthorized
+      redirect_to @list, :alert => "Only the list owner <strong>#{@list.user.name}</strong>  may change list contents.".html_safe
     end
 end
