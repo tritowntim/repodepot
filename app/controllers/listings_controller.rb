@@ -13,8 +13,8 @@ class ListingsController < ApplicationController
 
   def lookup
 
-  		# todo: search by either name or URL
-	    @existing = Repository.where("full_name = ?", params[:repo_name_or_url]).first
+  		# search for existing repo by either name or URL
+	    @existing = Repository.where("full_name = ? OR html_url = ?", params[:repo_name_or_url],  params[:repo_name_or_url]).first
 
 	    if @existing == nil
 	      begin
