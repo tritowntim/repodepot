@@ -45,7 +45,7 @@ $(function() {
         event.preventDefault()
         console.log('.add_fields clicked')
         // $('.repository-search').toggleClass('invisible-ui')
-        // $('.repository-search #full_repo_name').focus()
+        // $('.repository-search #repo_name_or_url').focus()
         showSearch()
         // var time = new Date().getTime()
         // var b = $("#blank-listing").html()
@@ -55,7 +55,7 @@ $(function() {
 
     $('.repo-search-container').on('click', '.cancel-repo-search', function(event) { 
       $('.repository-search').toggleClass('invisible-ui')
-      $('.repository-search #full_repo_name').val('')
+      $('.repository-search #repo_name_or_url').val('')
     })
 
     $('form').on('click', '.remove_field', function(event) {
@@ -82,7 +82,7 @@ function updateAllOrdering() {
 function showSearch() {
   $('.repository-search').toggleClass('invisible-ui')
   $('div.text-error').remove()
-  $('.repository-search #full_repo_name').focus()
+  $('.repository-search #repo_name_or_url').focus()
 }
 
 

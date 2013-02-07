@@ -14,11 +14,11 @@ class ListingsController < ApplicationController
   def lookup
 
   		# todo: search by either name or URL
-	    @existing = Repository.where("full_name = ?", params[:full_repo_name]).first
+	    @existing = Repository.where("full_name = ?", params[:repo_name_or_url]).first
 
 	    if @existing == nil
 	      begin
-	        @repository = GithubRepo.new(params[:full_repo_name]).repository
+	        @repository = GithubRepo.new(params[:repo_name_or_url]).repository
 	        @error_message = nil
 	      rescue ArgumentError => e
 	        @error_message = e.message
