@@ -7,7 +7,7 @@ var n = "<%=  j (render :partial => 'lookup', :locals => {:list => @list}) %>"
 // var time = new Date().getTime()
 // var b = $("#blank-listing").html()
 // var regexp = new RegExp($(b).data('id'),'g') 
-$('#listing-forms').append($(n).html())
+$('#listing-forms').append($(n))
 $('.commentary').last().focus()
 
 // todo: cleanup this insertion/reference

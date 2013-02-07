@@ -1,7 +1,7 @@
 			<fieldset id="<%= f.object.object_id %>" data-id="<%= f.object.object_id %>">
 					<% if f.object.repository != nil %>
 					 	<table class="table table-bordered repo-condensed">
-		 		  		<%= render :partial => 'repositories/tabular', :locals => {:repository => f.object.repository, :commentary => f.object.commentary} %>  
+		 		  		<%= render :partial => 'repositories/tabular', :locals => {:repository => f.object.repository} %>  
 		 		  		</tbody>
 		 		  	</table>
 		 		  <% else %>
