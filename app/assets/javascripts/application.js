@@ -12,7 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap
 //= require_tree .
+
 
 $(function() { 
 
@@ -71,7 +73,9 @@ $(function() {
         //$('fieldset .ordering').filter(function(i) { $(this).parent().css('display') == 'block' }).each(function(i) { $(this).val(i) } )
         //$('.ordering').filter(function(i) { return $(this).parent().css('display') == 'block' }).each(function(i) { $(this).val(i+1) } )
         updateAllOrdering();
-    })    
+    })
+
+    $('.alert').alert()
 
 })
 

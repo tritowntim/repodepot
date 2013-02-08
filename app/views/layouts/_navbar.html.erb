@@ -9,11 +9,18 @@
 		</div>
 	</div>
 
-	<div class="container flash">
-		<% if flash[:notice] %>
-			<div class="alert alert-success"><%= flash[:notice] %></div>
-		<% end %>
-		<% if flash[:alert] %>
-			<div class="alert alert-error"><%= flash[:alert] %></div>
-		<% end %>
-	</div>
+	<% if flash[:notice] || flash[:alert] %>
+			<% if flash[:notice] %>
+				<div class="container alert alert-success">
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+					<%= flash[:notice] %>
+				</div>
+			<% end %>
+			<% if flash[:alert] %>
+				<div class="container alert alert-error">
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+					<%= flash[:alert] %>
+				</div>
+			<% end %>
+	<% end %>
+	

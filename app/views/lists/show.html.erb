@@ -8,14 +8,6 @@
 			<small>updated<br/><%= " #{distance_of_time_in_words_to_now @list.updated_at} ago" %></small>
 		</div>
 	</div>
-<!-- todo	<div>
-		<% if flash[:notice] %>
-			<p class="text-success"><%= flash[:notice] %></p>
-		<% end %>
-		<% if flash[:alert] %>
-			<p class="text-error"><%= flash[:alert] %></p>
-		<% end %>
-	</div> -->
 	<div class="header">
 		<div class="description">
 			<p><%=@list.description %></p>

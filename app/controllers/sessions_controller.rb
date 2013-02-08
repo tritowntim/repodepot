@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
 	  user = User.from_omniauth(env["omniauth.auth"])
 	  session[:user_id] = user.id
 	  # todo: implement redirect_to root_url, :notice => "Logged in as #{user.name}!"
-	  redirect_to request.env['omniauth.origin'] || root_url
+	  redirect_to request.env['omniauth.origin'] || root_url, :notice => "Logged in as <strong>#{User.find(user.id).name}</strong>".html_safe
 	end
 
 	def destroy
