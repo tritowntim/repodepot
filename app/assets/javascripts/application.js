@@ -85,4 +85,3 @@ function showSearch() {
   $('.repository-search #repo_name_or_url').focus()
 }
 
-
