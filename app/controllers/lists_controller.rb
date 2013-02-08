@@ -32,7 +32,6 @@ class ListsController < ApplicationController
     @list = List.new(params[:list])
     @list.user_id = current_user.id
     if @list.save
-      # todo if save fails, does error appear?
       redirect_to @list
     else
       render :action => :new
@@ -53,7 +52,6 @@ class ListsController < ApplicationController
     @list = find_list
     if authorized_owner?(@list) 
       if @list.update_attributes(params[:list])
-        # todo if save fails, does error appear?
         redirect_to @list
       else
         render :edit

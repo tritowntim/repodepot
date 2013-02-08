@@ -1,9 +1,9 @@
 <%= form_for(@list) do |f| %>
 
   <% if @list.errors.any? %>
-    <div id="error_explanation">
-      <p class="text-error"><%="#{pluralize(@list.errors.count, 'validation error') }. Please fix #{@list.errors.count == 1 ? 'this issue' : 'these issues'} in order to save this list." %></h5>
-      <ul class="text-error">
+    <div class="alert alert-error alert-error-save">
+      <%="#{pluralize(@list.errors.count, 'validation error') }. Please fix #{@list.errors.count == 1 ? 'this issue' : 'these issues'} in order to save this list." %>
+      <ul>
       <% @list.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>

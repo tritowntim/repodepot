@@ -113,6 +113,10 @@ table.repo-condensed {
 	text-align: center;
 }
 
+.alert.alert-error.alert-error-save {
+	text-align: left;
+}
+
 
 
 
