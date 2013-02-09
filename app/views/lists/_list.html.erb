@@ -1,7 +1,7 @@
 		<tr>
 			<td><%= link_to list.title, list %></td>
 			<td><%= list.user.name %></td>
-			<td class="numeric"><%= list.listings.count %></td> 
+			<td class="col-numeric"><%= list.listings.count %></td> 
 			<td><%= list.created_at.localtime.strftime("%B %d, %Y %l:%M %P") %></td>
 			<td><%= list.updated_at.localtime.strftime("%B %d, %Y %l:%M %P") %></td>
 		</tr>  

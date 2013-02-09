@@ -1,11 +1,11 @@
 	  <tr>
 	  	<td><%= link_to repo.id, repo %></td>
 	  	<td><%= link_to repo.full_name, repo %></td>
-	  	<td class="numeric"><%= repo.gh_created_at.strftime "%b %d %Y" %></td>
-	  	<td class="numeric"><%= repo.gh_updated_at.strftime "%b %d %Y" %></td>
-			<td class="numeric"><%= number_with_delimiter repo.watchers_count %></td>
-	  	<td class="numeric"><%= number_with_delimiter repo.forks_count %></td>
-	  	<td class="numeric"><%= number_with_delimiter repo.open_issues_count %></td>
-	  	<td class="numeric"><%= number_with_delimiter repo.network_count %></td> 
-	  	<td class="numeric"><%= repo.created_at.localtime.strftime "%b %-d %Y %l:%M %p" %></td>
+	  	<td class="col-datetime"><%= repo.gh_created_at.strftime "%b %d %Y" %></td>
+	  	<td class="col-datetime"><%= repo.gh_updated_at.strftime "%b %d %Y" %></td>
+			<td class="col-numeric"><%= number_with_delimiter repo.watchers_count %></td>
+	  	<td class="col-numeric"><%= number_with_delimiter repo.forks_count %></td>
+	  	<td class="col-numeric"><%= number_with_delimiter repo.open_issues_count %></td>
+	  	<td class="col-numeric"><%= number_with_delimiter repo.network_count %></td> 
+	  	<td class="col-datetime"><%= repo.created_at.localtime.strftime "%b %-d %Y %l:%M %p" %></td>
 	  </tr>

@@ -20,10 +20,6 @@
 	display: none;
 }
 
-.numeric {
-	text-align: right !important;
-}
-
 .repo-description {
 	width: 50%;
 }
@@ -93,16 +89,6 @@ table.repo-condensed {
 	margin-right: 20px;
 }
 
-/*.flash { 
-	margin: 20px auto 4px;
-	text-align: center;
-}
-
-.flash p { 
-	margin: auto;
-	text-align: center;
-}*/
-
 .alert { 
 	margin: 20px auto 4px;
 	text-align: center;
@@ -116,6 +102,11 @@ table.repo-condensed {
 .alert.alert-error.alert-error-save {
 	text-align: left;
 }
+
+.col-numeric, .col-datetime {
+	text-align: right !important;
+}
+
 
 
 
