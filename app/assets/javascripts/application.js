@@ -46,18 +46,18 @@ $(function() {
     $('form').on('click', '.add_listing', function(event) {
         event.preventDefault()
         console.log('.add_fields clicked')
-        // $('.repository-search').toggleClass('invisible-ui')
-        // $('.repository-search #repo_name_or_url').focus()
-        showSearch()
+        // $('.add-listing').toggleClass('invisible-ui')
+        // $('.add-listing #repo_name_or_url').focus()
+        showAddListing()
         // var time = new Date().getTime()
         // var b = $("#blank-listing").html()
         // var regexp = new RegExp($(b).data('id'),'g')
         // $(event.target).before($("#blank-listing").html().replace(regexp,time))
     }) 
 
-    $('.repo-search-container').on('click', '.cancel-repo-search', function(event) { 
-      $('.repository-search').toggleClass('invisible-ui')
-      $('.repository-search #repo_name_or_url').val('')
+    $('.add-listing-container').on('click', '.cancel-add-listing', function(event) { 
+      $('.add-listing').toggleClass('invisible-ui')
+      $('#repo_name_or_url').val('')
     })
 
     $('form').on('click', '.remove_field', function(event) {
@@ -83,9 +83,9 @@ function updateAllOrdering() {
     $('.ordering').filter(function(i) { return $(this).parent().css('display') == 'block' }).each(function(i) { $(this).val(i+1) } )
 }
 
-function showSearch() {
-  $('.repository-search').toggleClass('invisible-ui')
+function showAddListing() {
+  $('.add-listing').toggleClass('invisible-ui')
   $('div.text-error').remove()
-  $('.repository-search #repo_name_or_url').focus()
+  $('.add-listing #repo_name_or_url').focus()
 }
 

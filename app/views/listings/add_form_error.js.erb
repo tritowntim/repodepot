@@ -1,9 +1,9 @@
 
-var search = "<%=  j (render :partial => 'add_form', :locals => {:repository => @repository, :commentary => nil}) %>"
+var addListingForm = "<%=  j (render :partial => 'add_form', :locals => {:repository => @repository, :commentary => nil}) %>"
 
-$(".repository-search").remove()
-$(".repo-search-container").append(search)
-showSearch()
+$(".add-listing").remove()
+$(".add-listing-container").append(addListingForm)
+showAddListing()
 // $("#repo_name_or_url").before('<div class="text-error">Repository "<%= j (params[:repo_name_or_url]) %>" not found on GitHub</div>')
 $("#repo_name_or_url").before('<div class="text-error"><%= j (@error_message) %></div>')
 
