@@ -1,34 +1,23 @@
 Repodepot::Application.routes.draw do
 
-  # todo: specify actual methods
-  resources :repositories do
-    collection do
-      get :search
-      post :lookup
-    end
-  end
-
-  resources :listings do
-    collection do
-      get :search
-      post :lookup
-    end
-  end
-
-  resources :lists do
+  resources :lists, :except => :destroy do
     collection do
       get :all
     end
   end
+
+  match 'listings/lookup', :to => 'listings#lookup', :via => :post, :as => 'lookup_listings'
+
+  # repository pages used presently for debugging, only accessible via direct URL for initial release
+  resources :repositories, :only => [:index, :show]
  
-
-  match 'home' => 'home#home'
-  match 'roadmap' => 'home#roadmap', :as => 'roadmap'
-
   # omniauth authentication
   match 'auth/:provider/callback', :to => 'sessions#create'
   match 'auth/failure', :to => redirect('/')  
   match 'logout', :to => 'sessions#destroy', :as => 'logout'
+
+  match 'roadmap' => 'home#roadmap', :as => 'roadmap'
+  match 'home' => 'home#home'
 
   root :to => 'home#home'
 
